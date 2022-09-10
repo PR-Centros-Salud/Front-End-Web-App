@@ -1,7 +1,8 @@
-import Footer from "./Footer"
 import Head from "next/head"
+import Nav from "./Nav"
 
 const Layout = ({ children }) => {
+
   return (
     <>
         <Head>
@@ -15,12 +16,10 @@ const Layout = ({ children }) => {
             <meta name="msapplication-TileColor" content="#da532c"/>
             <meta name="theme-color" content="#ffffff"/>
         </Head>
-        
         <main>
             { children }
         </main>
 
-        <Footer /> 
     </>
   )
 }

@@ -3,7 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Home() {
-
+  // Mover a login
+  // Reemplazar por landing page
   return (
     <div className='home-page'>
       <style jsx global>{`

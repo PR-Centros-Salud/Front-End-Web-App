@@ -9,6 +9,7 @@
 
 // Components
 @import './components/layout.scss';
+@import './components/Nav.scss';
 
 // Font Imports
 @import url('https://fonts.googleapis.com/css2?family=Yantramanav&display=swap');
@@ -16,6 +17,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 body{
+    @include flex;
     font-family: $secondary-font;
     overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.app{
+    @include flex;
+    width: 100vw;
+    height: 100vh;
 }

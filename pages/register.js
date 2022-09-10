@@ -24,13 +24,31 @@ export default function Home() {
       </div>
       <div className='home-page-section-2' color='white'>
           <h1>Cuida tu salud, <br/> cuida tu vida.</h1>
-          <h1>Iniciar Sesión.</h1>
+          <h1>Registrar.</h1>
           <div>
             <form className='form'>
+            <input 
+                  type="text"
+                  className="form-control"
+                  placeholder='Nombres'
+              />
+              <br/>
+              <input 
+                  type="text"
+                  className="form-control"
+                  placeholder='Apellidos'
+              />
+              <br/>
               <input 
                   type="text"
                   className="form-control"
                   placeholder='Usuario'
+              />
+              <br/>
+              <input 
+                  type="text"
+                  className="form-control"
+                  placeholder='Email'
               />
               <br/>
               <input
@@ -39,13 +57,17 @@ export default function Home() {
                   placeholder='Contraseña'
               />
               <br/>
+              <input
+                  type="password"
+                  className="form-control"
+                  placeholder='Confirmar Contraseña'
+              />
+              <br/>
               <Link  href="">
                 <a className="forget-password-a">Olvidaste tu contraseña?</a>
               </Link>
               <br/>
-              <Link href="/dashboard">
-                <button className="btn btn-primary">Iniciar Sesión</button>
-              </Link>
+              <button className="btn btn-primary">Iniciar Sesión</button>
             </form>
           </div>                    
       </div>  

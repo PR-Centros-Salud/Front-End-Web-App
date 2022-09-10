@@ -1,0 +1,21 @@
+// Utils
+@import './mixins.scss';
+// Pages
+@import './pages/index.scss';
+@import './pages/dashboard.scss';
+
+// Variables
+@import './variables.scss';
+
+// Components
+@import './components/layout.scss';
+
+// Font Imports
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body{
+    font-family: $secondary-font;
+    overflow-x: hidden;
+}

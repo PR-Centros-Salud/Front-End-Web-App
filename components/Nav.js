@@ -37,6 +37,7 @@ const Nav = () => {
                         <FontAwesomeIcon icon={faClipboard} />
                         <input type="button" value={'Reportes'} name="reports"/>
                     </div>
+                    
                 </div>
                 <div className='nav-section-1-3'>
                     <div>

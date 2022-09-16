@@ -94,9 +94,9 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-darwin-arm64@12.2.5":
-  "integrity" "sha512-VOPWbO5EFr6snla/WcxUKtvzGVShfs302TEMOtzYyWni6f9zuOetijJvVh9CCTzInnXAZMtHyNhefijA4HMYLg=="
-  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.2.5.tgz"
+"@next/swc-win32-x64-msvc@12.2.5":
+  "integrity" "sha512-7h5/ahY7NeaO2xygqVrSG/Y8Vs4cdjxIjowTZ5W6CKoTKn7tmnuxlUc2h74x06FKmbhAd9agOjr/AOKyxYYm9Q=="
+  "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.2.5.tgz"
   "version" "12.2.5"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -363,6 +363,16 @@
     "readdirp" "~3.6.0"
   optionalDependencies:
     "fsevents" "~2.3.2"
+
+"clsx@^1.1.1":
+  "integrity" "sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg=="
+  "resolved" "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz"
+  "version" "1.2.1"
+
+"cnbuilder@^3.1.0":
+  "integrity" "sha512-9sxWwwprkPNTVQnx92WYPEWCmyZRqbf9VWUYABU4rl0mLL17VAV2MvvOApkMA6bQVXRLJ8jN//8Yp6drElpLWA=="
+  "resolved" "https://registry.npmjs.org/cnbuilder/-/cnbuilder-3.1.0.tgz"
+  "version" "3.1.0"
 
 "color-convert@^2.0.1":
   "integrity" "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ=="
@@ -815,11 +825,6 @@
   "integrity" "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
-
-"fsevents@~2.3.2":
-  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
-  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
-  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
@@ -1468,7 +1473,7 @@
   "resolved" "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   "version" "1.2.3"
 
-"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@18.2.0":
+"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>= 16.3.0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -1476,12 +1481,29 @@
     "loose-envify" "^1.1.0"
     "scheduler" "^0.23.0"
 
+"react-draggable@^4.4.5":
+  "integrity" "sha512-OMHzJdyJbYTZo4uQE393fHcqqPYsEtkjfMgvCHr6rejT+Ezn4OZbNyGH50vv+SunC1RMvwOTSWkEODQLzw1M9g=="
+  "resolved" "https://registry.npmjs.org/react-draggable/-/react-draggable-4.4.5.tgz"
+  "version" "4.4.5"
+  dependencies:
+    "clsx" "^1.1.1"
+    "prop-types" "^15.8.1"
+
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.3", "react@18.2.0":
+"react-scrollbars-custom@^4.1.1":
+  "integrity" "sha512-FOI1EMrdN5qziwvFAuH4saOo0+ggxeTuKLPpy6nezNdLUnDW1vCHGq0VSSfTSRstDgfXgwff5TMP9NeJ8NiFOQ=="
+  "resolved" "https://registry.npmjs.org/react-scrollbars-custom/-/react-scrollbars-custom-4.1.1.tgz"
+  "version" "4.1.1"
+  dependencies:
+    "cnbuilder" "^3.1.0"
+    "react-draggable" "^4.4.5"
+    "zoom-level" "^2.5.0"
+
+"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 16.3.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.0.0", "react@>=16.3", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -1796,3 +1818,8 @@
   "integrity" "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="
   "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   "version" "0.1.0"
+
+"zoom-level@^2.5.0":
+  "integrity" "sha512-7UlRWU4Q3uCMCeDVMOm7eBrIu145OqsIJ3p6zq58l8UsSYwKWxc6zEapC5YA9tIeh0oheb4cT9Kk2Wq353loFg=="
+  "resolved" "https://registry.npmjs.org/zoom-level/-/zoom-level-2.5.0.tgz"
+  "version" "2.5.0"

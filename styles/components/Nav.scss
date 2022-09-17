@@ -4,7 +4,6 @@
     // Texto, otras cosas usen rem
     // SOLO UTILIZAR VARIABLES
     @include flex;
-    
     width: 30vw;
     height: 100vh;
     top: 0;
@@ -54,10 +53,7 @@
                 flex-direction: row;
                 justify-content: space-evenly;
                 width: 100%;
-                // height: calc(100% / 5);
                 height: 10%;
-                // margin-left: 2rem;
-                // margin-bottom: 1rem;
                 padding: 3%;
                 cursor: pointer;
                 border-radius: 5px;
@@ -96,7 +92,6 @@
                 flex-direction: row;
                 justify-content: space-evenly;
                 width: 100%;
-                // height: calc(100% / 5);
                 height: 100%;
                 cursor: pointer;
                 border-radius: 5px;
@@ -124,4 +119,5 @@
             }
         }
     }
+    
 }

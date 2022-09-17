@@ -3,6 +3,7 @@ import 'normalize.css'
 import Layout from '../components/layout'
 import { useRouter } from 'next/router'
 import Nav from '../components/Nav'
+import TopBar from '../components/TopBar'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -18,15 +19,8 @@ function MyApp({ Component, pageProps }) {
           ? null
           : <Nav/>
         }
-        {excludeNav.includes(pathname) && (
-          <style jsx global>{`
-            main{
-              width: 100%; 
-            }
-          `}</style>
-        )}
-
         <Layout>
+          {excludeNav.includes(pathname) ? null : <TopBar />}
           <Component {...pageProps} />
         </Layout>
       </div>

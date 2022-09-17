@@ -3,76 +3,33 @@
 
 .dashboard-page{
     @include flex;
-    width: 100vw;
-    height: 100%;
+    width: 100%;
     flex-direction: row;
+    overflow-y: visible;
     
     &-section-2{
         @include flex;
-        display: flex;
+        align-items: flex-start;
         justify-content: space-evenly;
-        flex-direction: column;
-        width: 80%;
-        height:100%;
+        flex-direction: row;
+        width: 100%;
         background-color: #121418;
-        &-1 {
-            @include flex;
-            width: 100%;
-            height: 10%;
-            justify-content: flex-start;
-            flex-direction: row;
-            margin-block-end: auto;
-            margin-top: 1rem;
-            margin-left: 2rem;
 
-            .search-icon {
-                fontawesome-icon{
-                    color: $main-font-color;
-                    font-size: 1.5rem;
-                    margin-right: 1rem;
-                };
-                margin-left: 1rem;
-            }
-
-            svg {
-                height: 40px;
-                width: 40px;
-                color: $main-font-color;
-                margin-left: 1rem;
-                margin-top: 0.5rem;
-                padding: 10px;
-                background-color: #1B1F24;
-                border-radius: 15px;
-            }
-
-            input {
-                width: 620px;
-                height: 40px;
-                border: none;
-                background-color: transparent;
-                color: $main-font-color;
-                font-size: 1rem;
-                font-weight: 600;
-                text-align: left;
-                margin-top: 0.5rem;
-                margin-left: 1rem;
-            }
-        }
         &-2 {
             @include flex;
             flex-direction: column;
             justify-content: flex-start;
             margin-inline-end: auto;
-            width: 50%;
-            height:100%;
-            margin-top: 1.5rem;
-            margin-left: 2rem;
-
+            width: 45%;
+            height: 100vh;
+            margin-left: 1rem;
+            margin-top: 1rem;
+            
             &-1 {
                 @include flex;
                 background-color: $secondary-bg-color;
                 width: 100%;
-                height: 20%;
+                height: 15.5%;
                 border-radius: 10px;
                 flex-direction: row;
                 justify-content: space-evenly;
@@ -157,15 +114,14 @@
                 justify-content: space-evenly;
                 border-radius: 10px;
                 width: 100%;
-                height: 20%;
+                height: 15%;
                 margin-top: 1rem;
                 background-color: $secondary-bg-color;
-
+                
                 svg {
                     height: 50%;
                     width: 50%;
                     color: #E84949;
-                    margin-left: 1rem;
                     padding: 10px;
                     border-radius: 15px;
                 }
@@ -183,7 +139,6 @@
                         align-items: flex-start;
                         width: 100%;
                         height: 100%;
-                        margin-left: 1rem;
 
                         h3 {
                             font-size: 2rem;
@@ -208,12 +163,35 @@
             @include flex;
             flex-direction: column;
             justify-content: flex-start;
-            margin-inline-start: auto;
             width: 50%;
-            height:100%;
-            margin-top: 1.5rem;
-            margin-right: 2rem;
-            background-color: orange;
+            height:85vh;
+            margin-top: 1rem;
+            margin-right: 1rem;
+            border-radius: 10px;            
+            background-color: $secondary-bg-color;
+
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: $main-font-color;
+            }
+
+            .react-calendar { 
+                width: 400px;
+                max-width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .react-calendar__navigation button {
+                color: #6f48eb;
+                min-width: 44px;
+                background: none;
+                font-size: 16px;
+                margin-top: 8px;
+            }
+
+            abbr {}
         }
     }
 }

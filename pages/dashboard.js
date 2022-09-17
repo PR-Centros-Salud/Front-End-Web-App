@@ -1,22 +1,18 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Scrollbar } from 'react-scrollbars-custom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faMagnifyingGlass, faBan } from '@fortawesome/free-solid-svg-icons'
+import { faBan } from '@fortawesome/free-solid-svg-icons'
 import { faUser, faCircleCheck } from '@fortawesome/free-regular-svg-icons'
+import { useState } from 'react';
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
+import AppointmentCard from '../components/AppointmentCard';
 
 export default function Dashboard() {
+    const [date, setDate] = useState(new Date());
     return (
         <div className='dashboard-page'>
             <div className='dashboard-page-section-2'>
-                <div className='dashboard-page-section-2-1'>
-                    <FontAwesomeIcon icon={faChevronLeft} />
-                    <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon"/>
-                        <input
-                        type="text"
-                        placeholder="Buscar..." />
-                </div>
                 <div className='dashboard-page-section-2-2'>
                     <div className='dashboard-page-section-2-2-1'>
                         <Image
@@ -38,6 +34,8 @@ export default function Dashboard() {
                             <h4>Hoy dia -  13 de Diembre 2022</h4>
                         </div>
                         <div className='cards-section'>
+                            <AppointmentCard />
+                            <AppointmentCard />
                         </div>
                     </div>
                     <div className='dashboard-page-section-2-2-3'>
@@ -65,7 +63,8 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='dashboard-page-section-2-3'>
-
+                    <h2>Dicimbre 2022</h2>
+                    <Calendar onChange={setDate} value={date} />
                 </div>
             </div>
         </div>

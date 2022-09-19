@@ -63,8 +63,10 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='dashboard-page-section-2-3'>
-                    <h2>Dicimbre 2022</h2>
                     <Calendar onChange={setDate} value={date} />
+                    <div className='dates-section'>
+                        <p>hola</p>
+                    </div>
                 </div>
             </div>
         </div>

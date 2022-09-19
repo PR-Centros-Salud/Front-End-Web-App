@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "next/image"
 import { faGear, faBorderAll, faUserDoctor, faCalendarDays, faUser, faClipboard, faChevronLeft, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
@@ -20,11 +21,15 @@ const Nav = () => {
             <div className='nav-section-1-2'>
                 <div className='div-home'>
                     <FontAwesomeIcon icon={faBorderAll} />
-                    <input type="button" value={'Inicio'} name="home"/>
+                    <Link href={'/dashboard'}>
+                        <input type="button" value={'Inicio'} name="home"/>
+                    </Link>
                 </div>
                 <div>
                     <FontAwesomeIcon icon={faUserDoctor} />
-                    <input type="button" value={'Doctores'} name="doctors"/>
+                    <Link href={'/doctors'}>
+                        <input type="button" value={'Doctores'} name="doctors"/>
+                    </Link>
                 </div>
                 <div>
                     <FontAwesomeIcon icon={faCalendarDays} />
@@ -43,7 +48,9 @@ const Nav = () => {
             <div className='nav-section-1-3'>
                 <div>
                     <FontAwesomeIcon icon={faGear} />
-                    <input type="button" value={'Configuración'} name="settings"/>
+                    <Link href={'/configuration'}>
+                        <input type="button" value={'Configuración'} name="settings"/>
+                    </Link>
                 </div>
             </div>
         </div>

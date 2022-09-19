@@ -121,7 +121,7 @@
                 svg {
                     height: 50%;
                     width: 50%;
-                    color: #E84949;
+                    color: $extra-color;
                     padding: 10px;
                     border-radius: 15px;
                 }
@@ -176,22 +176,60 @@
                 color: $main-font-color;
             }
 
+            //Calendar Style
             .react-calendar { 
-                width: 400px;
-                max-width: 100%;
-                border-radius: 10px;
-                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+                margin-top: 1rem;
+                width: 90%;
+                background-color: #282B30;
+                color: white;
+                border-radius: 8px;
                 font-family: Arial, Helvetica, sans-serif;
+                line-height: 1.125em;
+            }
+            abbr[title] {
+                text-decoration: none;
             }
             .react-calendar__navigation button {
-                color: #6f48eb;
+                color: white;
                 min-width: 44px;
-                background: none;
                 font-size: 16px;
                 margin-top: 8px;
             }
+            .react-calendar__navigation button:enabled:hover,
+            .react-calendar__navigation button:enabled:focus {
+                background-color: $extra-color;
+                border-radius: 10px;
+            }
+            .react-calendar__tile:enabled:hover,
+            .react-calendar__tile:enabled:focus {
+                background: $extra-color;
+                color: white;
+                border-radius: 6px;
+            }
+            .react-calendar__tile--active {
+                background: none;
+                color: $extra-color;
+                border-radius: 6px;
+            }
+            .react-calendar__tile--now {
+                background: #e8494932;
+                border-radius: 6px;
+                font-weight: bold;
+                color: white;
+            }
 
-            abbr {}
+            .dates-section {
+                @include flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                overflow-y: scroll-hidden;
+                width: 90%;
+                height: 100%;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                border-radius: 10px;
+                background-color: aqua;
+            }
         }
     }
 }

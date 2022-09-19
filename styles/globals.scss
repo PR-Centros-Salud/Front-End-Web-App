@@ -1,8 +1,10 @@
 // Utils
 @import './mixins.scss';
 // Pages
-@import './pages/index.scss';
+@import './pages/login.scss';
 @import './pages/dashboard.scss';
+@import './pages/doctors.scss';
+@import './pages/configuration.scss';
 
 // Variables
 @import './variables.scss';

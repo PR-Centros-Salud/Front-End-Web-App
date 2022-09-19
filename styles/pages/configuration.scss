@@ -1,0 +1,157 @@
+@import './../mixins.scss';
+@import './../variables.scss';
+
+.configuration-page{
+    @include flex;
+    width: 100%;
+    flex-direction: column;
+    background-color: #121418;
+    &-section-1{
+        @include flex;
+        width: 100%;
+        height: 25%;
+        flex-direction: column;
+        color: $main-font-color;
+
+        &-title {
+            @include flex;
+            flex-direction: column;
+            width: 100%;
+            height: 10%;
+            justify-content: center;
+            align-items: flex-start;
+            margin-left: 2rem;
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+            h2 {
+                font-size: 1rem;
+                font-weight: 300;
+            }
+            h1, h2 {
+                margin: 0.5rem;
+            }
+        }
+    
+        &-profile-picture{
+            @include flex;
+            flex-direction: row;
+            color: $main-font-color;
+        }
+         
+        &-profile-buttons{
+            margin-left: 10vh;
+            .button-1{
+                background-color: #E84949;
+                color: $main-font-color;
+                border-color: #E84949;
+                border: 2%;
+                border-radius: 8px;
+                padding: 0.5rem;
+                margin: 0.5rem;
+                font-size: 1.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                width: 15vh;
+            }
+            .button-2{
+                background-color: #1B1F24;
+                color: $main-font-color;
+                border: 2%;
+                border-color: white;
+                border-radius: 8px;
+                padding: 0.5rem;
+                margin: 0.5rem;
+                font-size: 1.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                width: 15vh;
+            }
+        }
+    }
+    hr {
+        display: flex;
+        width: 95%;
+        color: white;
+        background-color: #1B1F24;
+    }
+
+    &-section-2-information{
+        display: flex;
+        flex-direction: column;
+        color: white;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background-color: #121418;
+        h2{
+            margin-left: 5%;
+        }
+        &-inputs{
+            input{
+                height: 45%;
+                background-color: #1B1F24;
+                border-radius: 10px;
+                font-size: 1.5rem;
+                font-weight: 600;
+                padding: auto;
+                border: none;
+            }
+            .form{
+                display : flex;
+                flex-direction: row;
+                .inputs-column-1{
+                    display: flex;
+                    flex-direction: column;
+                    margin-left : 5%;
+                }
+                .inputs-column-2{
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 5%;
+                }
+                .inputs-column-3{
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 5%;
+                }
+            }
+
+        }
+        &-buttons{
+            display: flex;
+            flex-direction: row;
+            margin-left: 5%;
+            margin-top: 5%;
+            .button-1{
+                background-color: #E84949;
+                color: $main-font-color;
+                border-color: #E84949;
+                border: 2%;
+                border-radius: 8px;
+                padding: 0.5rem;
+                margin: 0.5rem;
+                font-size: 1.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                width: 20vh;
+            }
+            .button-2{
+                background-color: #1B1F24;
+                color: $main-font-color;
+                border: 2%;
+                border-color: white;
+                border-radius: 8px;
+                padding: 0.5rem;
+                margin: 0.5rem;
+                font-size: 1.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                width: 20vh;
+            }
+        }
+    }
+   
+    
+}

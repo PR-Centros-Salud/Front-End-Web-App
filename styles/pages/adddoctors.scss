@@ -1,0 +1,87 @@
+@import './../mixins.scss';
+@import './../variables.scss';
+
+.doctorinsert-page{ 
+    @include flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    &-section-2{
+        @include flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 100%;
+        width: 100%;
+        background-color: #121418;
+        .form{
+            @include flex;
+            align-items: flex-start;
+            height: 100vh;
+            width: 100vh;
+            @include flex;
+            flex-direction: row;
+            align-items: flex-start;
+            margin-left: 9.5vh;
+            background-color: #121418;
+            .inputs-column-1{
+
+                margin-right: 10%;
+                color: white;
+                input{
+                    height: 5vh;
+                    background-color: #1B1F24;
+                    border-radius: 10px;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    padding: auto;
+                    border: none;
+                }
+                .button-1{
+                    background-color: #E84949;
+                    color: $main-font-color;
+                    border-color: #E84949;
+                    border: 2%;
+                    border-radius: 8px;
+                    margin-top: 2vh;
+                    padding: 0.5rem;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    width: 31vh;
+                }
+                
+            }
+            .inputs-column-2{
+                color: white;
+                textarea{
+                    height: 18vh;
+                    background-color: #1B1F24;
+                    border-radius: 10px;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    padding: auto;
+                    border: none;
+                }
+                .image-area{
+                    .input-image{
+                        @include flex;
+                        flex-direction: row;
+                        &-buttons{
+                            &-options{
+                                @include flex;
+                                flex-direction: column;
+                                margin-left: 2vh;
+                                margin-bottom: 8vh;
+                                .option-add{
+                                    margin-bottom: 2vh;
+                                }
+
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

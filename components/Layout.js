@@ -1,5 +1,4 @@
-import Head from "next/head"
-import Nav from "./Nav"
+import Head from "next/head";
 
 const Layout = ({ children }) => {
 

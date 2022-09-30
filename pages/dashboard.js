@@ -65,7 +65,10 @@ export default function Dashboard() {
                 <div className='dashboard-page-section-2-3'>
                     <Calendar onChange={setDate} value={date} />
                     <div className='dates-section'>
-                        <p>hola</p>
+                        <div className='date-card'>
+                            <h3>Fernardo Rivera</h3>
+                            <h4>09:00 AM - 10:00 AM</h4>
+                        </div>
                     </div>
                 </div>
             </div>

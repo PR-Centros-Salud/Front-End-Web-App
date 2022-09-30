@@ -1,9 +1,9 @@
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "next/image"
-import { faGear, faBorderAll, faUserDoctor, faCalendarDays, faUser, faClipboard, faChevronLeft, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faGear, faBorderAll, faUserDoctor, faHospital } from '@fortawesome/free-solid-svg-icons'
 
-const Nav = () => {
+const NavAdmin = () => {
   return (
     <>
     <nav className="nav">
@@ -26,16 +26,14 @@ const Nav = () => {
                     </Link>
                 </div>
                 <div>
-                    <FontAwesomeIcon icon={faCalendarDays} />
-                    <input type="button" value={'Citas Medicas'} name="appointments"/>
+                    <FontAwesomeIcon icon={faUserDoctor} />
+                    <Link href={'admin/doctors'}>
+                        <input type="button" value={'Doctores'} name="doctors"/>
+                    </Link>
                 </div>
                 <div>
-                    <FontAwesomeIcon icon={faUser} />
-                    <input type="button" value={'Pacientes'} name="patients"/>
-                </div>
-                <div>
-                    <FontAwesomeIcon icon={faClipboard} />
-                    <input type="button" value={'Reportes'} name="reports"/>
+                    <FontAwesomeIcon icon={faHospital} />
+                    <input type="button" value={'Hospitales'} name="institutions"/>
                 </div>
             </div>
             <div className='nav-section-1-3'>
@@ -54,4 +52,4 @@ const Nav = () => {
   )
 }
 
-export default Nav
+export default NavAdmin

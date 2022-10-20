@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import Link from 'next/link'
+
 const DoctorCard = () => {
     return (
         <div className='doctor-card' >
@@ -12,7 +14,9 @@ const DoctorCard = () => {
             <div className='information'>
                 <h2 className='full-name'>Micaela Zalles</h2>
                 <h6 className='specialty'>Cardiologo</h6>
-                <button className='button-1'>Ver Perfil</button>
+                <Link href={"configuration"}>
+                    <button className='button-1'>Ver Perfil</button>
+                </Link>
             </div>
         </div>
     )

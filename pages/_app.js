@@ -6,6 +6,8 @@ import Nav from '../components/Nav'
 import TopBar from '../components/TopBar'
 import UlComponent from '../components/UlComponet'
 import { useEffect } from 'react';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function MyApp({ Component, pageProps }) {
@@ -18,11 +20,22 @@ function MyApp({ Component, pageProps }) {
     console.log(isAdmin)
   }, [])
   const excludeNav = ['/', '/login', '/register']
-  const excludeUl = ['/', '/login', '/register', '/dashboard', '/configuration']
+  const excludeUl = ['/', '/login', '/register', '/dashboard', '/configuration', '/appointmentDetails']
 
   return (
     <>
       <div className='app'>
+      <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover
+        />
         {excludeNav.includes(pathname) 
           ? null 
           : <Nav/>

@@ -1,10 +1,16 @@
 import Image from "next/image";
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 export default function addDoctors() {
   return (
     <div className="doctorinsert-page">
       <div className="doctorinsert-page-top">
-        <input placeholder={"Inserte el CI"} type={"number"} />
+        <input 
+          placeholder={"Inserte el CI"} 
+          type={"number"} 
+          id='ci'
+        />
         <button>BUSCAR</button>
       </div>
       <div className="doctorinsert-page-form">
@@ -45,6 +51,9 @@ export default function addDoctors() {
                   <h1>Hora:</h1>
                   <input type={"time"} placeholder={"Inicio"} />
                   <input type={"time"} placeholder={"Fin"} />
+                </div>
+                <div className="schedule-insert-button">
+                  <button>Agregar Horario</button>
                 </div>
               </div>
             </div>

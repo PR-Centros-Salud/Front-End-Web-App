@@ -1,28 +1,49 @@
-import { Html } from 'next/document';
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { getToken } from '../api/token';
+import { loginApi } from '../api/user';
+import { toast } from 'react-toastify';
+import { useFormik } from 'formik';
+import * as Yup from "yup";
 
+const Comp2 = () => {
+  return div
+}
 
 export default function Home() {
   // Variable con estado, Funcion para cambiar el estado de esa variable
-  const [user, setUser] = useState("")
-  const [password, setPassword] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(user);
-    if (user == "admin" && password == "admin") {
-      router.push('/dashboard')
-      localStorage.setItem('isAdmin', true);
-    } else {
-      router.push('/dashboard')
-      localStorage.setItem('isAdmin', false);
+  const formik = useFormik({
+    initialValues: {
+      user: '',
+      password: '',
+    },
+    onSubmit: async (values) => { 
+      console.log(values)
+      setIsLoading(true)
+      if (values.user === '' || values.password === '') {
+        toast.error('Todos los campos son obligatorios')
+        setIsLoading(false)
+      } else {
+        const response = await loginApi(values)
+        if (response) {
+          console.log(response);
+          setIsLoading(false)
+        } else {
+          toast.error('Usuario o contraseña incorrectos')
+          setIsLoading(false)
+        }
+      }
+      // console.log(values)
+      // await loginApi({ username: values.user, password: values.password })
+      // setIsLoading(false)
     }
-  };
+  })
   
   return (
     <div className='home-page'>
@@ -34,36 +55,36 @@ export default function Home() {
               width={150}
               alt="logo"
               className="logo-image"
-          />
+        />
           <h2>EAST WOOD CLINIC</h2>
       </div>
       <div className='home-page-section-2' color='white'>
           <h1>Cuida tu salud, <br/> cuida tu vida.</h1>
           <h1>Iniciar Sesión.</h1>
           <div>
-            <form className='form'>
+            <form className='form' onSubmit={formik.handleSubmit}>
               <input 
               type="text"
               className="form-control"
               placeholder='Usuario'
               id='username'
-              value={user}
-              onChange={e => setUser(e.target.value)}
+              value={formik.values.user}
+              onChange={formik.handleChange("user")}
               />
               <br/>
               <input
                   type="password"
                   className="form-control"
                   placeholder='Contraseña'
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
+                  value={formik.values.password}
+                  onChange={formik.handleChange("password")}
               />
               <br/>
               <Link  href="">
                 <a className="forget-password-a">Olvidaste tu contraseña?</a>
               </Link>
               <br/>
-              <button onClick={handleSubmit} className="btn btn-primary">Iniciar Sesión</button>
+            <button type="submit" className="btn btn-primary">{ isLoading ? "Cargando" : "Iniciar Sesión"}</button>
             </form>
           </div>                    
       </div>  

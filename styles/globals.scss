@@ -7,6 +7,7 @@
 @import './pages/doctors.scss';
 @import './pages/configuration.scss';
 @import './pages/adddoctors.scss';
+@import './pages/appointmentDetails.scss';
 
 // Variables
 @import './variables.scss';
@@ -37,4 +38,16 @@ body{
     @include flex;
     width: 100vw;
     height: 100vh;
+    overflow-y: hidden;
 }
+
+body {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+  }
+  
+  body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+  

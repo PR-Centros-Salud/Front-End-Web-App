@@ -41,16 +41,8 @@ const Nav = () => {
                       
                 
             </div>
-            <div className='nav-section-1-3'>
-                <div>
-                    <FontAwesomeIcon icon={faGear} />
-                    <Link href={'/configuration'}>
-                        <input type="button" value={'Configuración'} name="settings"/>
-                    </Link>
-                </div>
-            </div>
+            
         </div>
-        
     </nav>
     
     </>
@@ -68,9 +60,17 @@ const AdminOptions = () => {
             </div>
             <div>
                 <FontAwesomeIcon icon={faUserDoctor} />
-                <Link href={'admin/doctors'}>
+                <Link href={'/admin/doctors'}>
                     <input type="button" value={'Doctores'} name="doctors"/>
                 </Link>
+            </div>
+            <div className='nav-section-1-3'>
+                <div>
+                    <FontAwesomeIcon icon={faGear} />
+                    <Link href={"#"}>
+                        <input type="button" value={'Configuración de Institución'} name="settings"/>
+                    </Link>
+                </div>
             </div>
         </>    
     )
@@ -96,6 +96,14 @@ const DoctorOptions = () => {
             <div>
                 <FontAwesomeIcon icon={faClipboard} />
                 <input type="button" value={'Reportes'} name="reports"/>
+            </div>
+            <div className='nav-section-1-3'>
+                <div>
+                    <FontAwesomeIcon icon={faGear} />
+                    <Link href={"configuration"}>
+                        <input type="button" value={'Configuración'} name="settings"/>
+                    </Link>
+                </div>
             </div>
         </>
     )

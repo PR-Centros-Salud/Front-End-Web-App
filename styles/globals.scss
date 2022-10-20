@@ -1,0 +1,40 @@
+// Utils
+@import './mixins.scss';
+// Pages
+@import './pages/index.scss';
+@import './pages/login.scss';
+@import './pages/dashboard.scss';
+@import './pages/doctors.scss';
+@import './pages/configuration.scss';
+@import './pages/adddoctors.scss';
+
+// Variables
+@import './variables.scss';
+
+// Components
+@import './components/layout.scss';
+@import './components/Nav.scss';
+@import './components/TopBar.scss';
+@import './components/AppointmentCard.scss';
+@import './components/DoctorCard.scss';
+@import './components/UlComponent.scss';
+@import './components/NavLandingPage.scss';
+
+// Font Imports
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body{
+    @include flex;
+    font-family: $secondary-font;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.app{
+    @include flex;
+    width: 100vw;
+    height: 100vh;
+}

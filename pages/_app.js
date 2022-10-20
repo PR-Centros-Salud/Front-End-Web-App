@@ -5,14 +5,18 @@ import { useRouter } from 'next/router'
 import Nav from '../components/Nav'
 import TopBar from '../components/TopBar'
 import UlComponent from '../components/UlComponet'
-import NavAdmin from '../components/NavAdmin'
+import { useEffect } from 'react';
+
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const { pathname } = router
-
   const isAdmin = false;
-
+  useEffect(() => {
+    // Perform localStorage action
+    const isAdmin = JSON.parse(localStorage.getItem('isAdmin')) ? true : false
+    console.log(isAdmin)
+  }, [])
   const excludeNav = ['/', '/login', '/register']
   const excludeUl = ['/', '/login', '/register', '/dashboard', '/configuration']
 
@@ -21,9 +25,7 @@ function MyApp({ Component, pageProps }) {
       <div className='app'>
         {excludeNav.includes(pathname) 
           ? null 
-          : isAdmin 
-          ? <NavAdmin /> 
-          : <Nav />
+          : <Nav/>
         }
         <Layout>
           {excludeNav.includes(pathname) ? null : <TopBar />}

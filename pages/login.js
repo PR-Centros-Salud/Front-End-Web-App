@@ -2,20 +2,27 @@ import { Html } from 'next/document';
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Router } from 'next/router';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+
 
 export default function Home() {
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   var user = document.getElementById("user");
-  //   var password = document.getElementById("password");
+  // Variable con estado, Funcion para cambiar el estado de esa variable
+  const [user, setUser] = useState("")
+  const [password, setPassword] = useState("")
+  const router = useRouter()
 
-  //   if (user == "admin" && password == "admin") {
-  //     Router.push('/dashboard');
-  //   } else {
-  //     alert("Usuario o contraseña incorrectos");
-  //   }
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
+    if (user == "admin" && password == "admin") {
+      router.push('/dashboard')
+      localStorage.setItem('isAdmin', true);
+    } else {
+      router.push('/dashboard')
+      localStorage.setItem('isAdmin', false);
+    }
+  };
   
   return (
     <div className='home-page'>
@@ -36,25 +43,27 @@ export default function Home() {
           <div>
             <form className='form'>
               <input 
-                  type="text"
-                  className="form-control"
-                  placeholder='Usuario'
-                  id='username'
+              type="text"
+              className="form-control"
+              placeholder='Usuario'
+              id='username'
+              value={user}
+              onChange={e => setUser(e.target.value)}
               />
               <br/>
               <input
                   type="password"
                   className="form-control"
                   placeholder='Contraseña'
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
               />
               <br/>
               <Link  href="">
                 <a className="forget-password-a">Olvidaste tu contraseña?</a>
               </Link>
               <br/>
-              <Link href={'dashboard'}>
-                <button className="btn btn-primary">Iniciar Sesión</button>
-              </Link>
+              <button onClick={handleSubmit} className="btn btn-primary">Iniciar Sesión</button>
             </form>
           </div>                    
       </div>  

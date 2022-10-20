@@ -1,10 +1,10 @@
 import Image from 'next/image'
 const DoctorCard = () => {
     return (
-        <div className='doctor-card'>
+        <div className='doctor-card' >
             <Image
                 priority
-                src="/images/image_4.png"
+                src="/images/doctor-image.png"
                 height={150}
                 width={150}
                 alt="doctor"

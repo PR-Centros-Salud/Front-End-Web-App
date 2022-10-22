@@ -7,16 +7,15 @@ import { getToken } from '../api/token';
 import { loginApi } from '../api/user';
 import { toast } from 'react-toastify';
 import { useFormik } from 'formik';
+import useAuth from '../hooks/useAuth';
 import * as Yup from "yup";
-
-const Comp2 = () => {
-  return div
-}
+import jwtDecode from 'jwt-decode';
 
 export default function Home() {
   // Variable con estado, Funcion para cambiar el estado de esa variable
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const { auth, login } = useAuth()
 
   const formik = useFormik({
     initialValues: {
@@ -28,23 +27,29 @@ export default function Home() {
       setIsLoading(true)
       if (values.user === '' || values.password === '') {
         toast.error('Todos los campos son obligatorios')
-        setIsLoading(false)
       } else {
         const response = await loginApi(values)
         if (response) {
-          console.log(response);
-          setIsLoading(false)
+          const credentials = jwtDecode(response.data.access_token)
+          if (credentials.discriminator === 'admin' || credentials.discriminator === 'medical_personal') {
+            login(response.data.access_token)
+            toast.success("Login exitoso.")
+            router.push('/dashboard')
+          } else {
+            toast.error("No tienes permisos para acceder a esta aplicación.")
+          }
         } else {
           toast.error('Usuario o contraseña incorrectos')
-          setIsLoading(false)
         }
       }
-      // console.log(values)
-      // await loginApi({ username: values.user, password: values.password })
-      // setIsLoading(false)
+      setIsLoading(false)
     }
   })
   
+  if (auth) {
+    router.push('/dashboard')
+  }
+
   return (
     <div className='home-page'>
       <div className='home-page-section-1'>

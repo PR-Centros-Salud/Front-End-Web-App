@@ -25,18 +25,18 @@ class NavLandingPage extends React.Component {
             </div>
 		    <div className="navbar-section-pages">
 			    <ul className="navbar-section-pages-links">
-			        <lb className="nav-item-home">
+			        <li className="nav-item-home">
 			          	<a className="nav-link" >Home </a>
-			        </lb>
-			        <lb className="nav-item-about-us">
+			        </li>
+			        <li className="nav-item-about-us">
 			          	<a className="nav-link" >Sobre Nosotros</a>
-			        </lb>
-			        <lb className="nav-item-contact">
+			        </li>
+			        <li className="nav-item-contact">
 			          	<a className="nav-link" >Contacto</a>
-			        </lb>
-			        <lb className="nav-item-login">
+			        </li>
+			        <li className="nav-item-login">
 			          	<a href="login" className="nav-link" >Iniciar Sesión</a>
-			        </lb>
+			        </li>
 			    </ul>
 		    </div>
  

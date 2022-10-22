@@ -11,7 +11,7 @@ export default function LandingPage() {
             <div className='landing-page-section-1-information'>
                 <div className='landing-page-section-1-information-text'>
                     <h1>Cuidar tu salud, es el<br/>primer paso para estar<br/>mejor!</h1>
-                    <lb>Agenda citas con los doctores de tu preferencia desde la <br/> comodidad de tu telefono movil, sin esperas, sin filas y <br/> con un servicio de calidad.</lb>      
+                    <p>Agenda citas con los doctores de tu preferencia desde la <br/> comodidad de tu telefono movil, sin esperas, sin filas y <br/> con un servicio de calidad.</p>      
                 </div>
                 <div className='landing-page-section-1-information-stores'>
                     <Image

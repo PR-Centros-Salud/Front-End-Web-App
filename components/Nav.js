@@ -5,14 +5,19 @@ import { faGear, faHospital, faBorderAll, faUserDoctor, faCalendarDays, faUser, 
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useState } from "react";
+import useAuth from "../hooks/useAuth";
+
 const Nav = () => {
 
     const router = useRouter()
     const { pathname } = router
     let [isAdmin, setIsAdmin] = useState(false)
+    const {auth, login} = useAuth()
     useEffect(() => {
         // Perform localStorage action
-        setIsAdmin(JSON.parse(localStorage.getItem('isAdmin')) == true)
+        if (auth) {
+            setIsAdmin(auth.idUser.discriminator === 'admin' ? true : false)
+        }
     }, [])
 
 

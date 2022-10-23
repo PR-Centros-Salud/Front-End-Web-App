@@ -7,9 +7,18 @@ import { useState } from 'react';
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import AppointmentCard from '../components/AppointmentCard';
+import useAuth from '../hooks/useAuth'
+import { useRouter } from 'next/router'
 
 export default function Dashboard() {
     const [date, setDate] = useState(new Date());
+    const { auth, login } = useAuth() 
+    const router = useRouter()
+    
+    if (!auth) {
+        router.push('/login')
+    }
+
     return (
         <div className='dashboard-page'>
             <div className='dashboard-page-section-2'>

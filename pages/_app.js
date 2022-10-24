@@ -21,7 +21,6 @@ function MyApp({ Component, pageProps }) {
 
   const router = useRouter()
   const { pathname } = router
-  const isAdmin = false;
 
   useEffect(() => {
     const token = getToken()
@@ -67,16 +66,17 @@ function MyApp({ Component, pageProps }) {
     );
 
 
-  useEffect(() => {
-    // Perform localStorage action
-    const isAdmin = JSON.parse(localStorage.getItem('isAdmin')) ? true : false
-    console.log(isAdmin)
-  }, [])
+  // useEffect(() => {
+  //   // Perform localStorage action
+  //   if (auth != null) {
+  //     console.log(auth)
+  //     console.log('hola')
+  //   }
+  // }, [auth])
   const excludeNav = ['/', '/login', '/register']
   const excludeUl = ['/', '/login', '/register', '/dashboard', '/configuration', '/appointmentDetails']
 
   if (auth === undefined) return null
-
   return (
     <AuthContext.Provider value={authData}>
       <div className='app'>

@@ -14,7 +14,7 @@ export const removeToken = () => {
 
 export const isTokenExpired = (token) => {
     const decoded = jwtDecode(token)
-    const expireDate = tokenDecode.exp * process.env.EXPIRATION_TIME
+    const expireDate = decoded.exp * process.env.EXPIRATION_TIME
     const currentDate = new Date().getTime()
     return currentDate > expireDate
 }

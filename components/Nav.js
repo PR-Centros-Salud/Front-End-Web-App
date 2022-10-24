@@ -12,7 +12,9 @@ const Nav = () => {
     const router = useRouter()
     const { pathname } = router
     let [isAdmin, setIsAdmin] = useState(false)
-    const {auth, login} = useAuth()
+    let [password, setPassword] = useState("")
+    const { auth, login } = useAuth()
+    
     useEffect(() => {
         // Perform localStorage action
         if (auth) {
@@ -72,7 +74,7 @@ const AdminOptions = () => {
             <div className='nav-section-1-3'>
                 <div>
                     <FontAwesomeIcon icon={faGear} />
-                    <Link href={"#"}>
+                    <Link href={"/configuration"}>
                         <input type="button" value={'Configuración de Institución'} name="settings"/>
                     </Link>
                 </div>

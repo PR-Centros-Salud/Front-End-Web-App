@@ -7,7 +7,7 @@
     flex-direction: row;
     overflow-y: visible;
     
-    &-section-2{
+    &-section-2-doctor{
         @include flex;
         align-items: flex-start;
         justify-content: space-evenly;
@@ -260,4 +260,21 @@
             }
         }
     }
+
+    &-section-2-admin{
+        > div {
+            background-color: pink;
+            > div {
+                background-color: blue;
+                img{
+
+                }
+
+                > div{
+                    background-color: green;
+                }
+            }
+        }
+    }
+
 }

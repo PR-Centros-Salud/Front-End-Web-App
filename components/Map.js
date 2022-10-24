@@ -1,8 +1,9 @@
-// import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps/api";
 
-const Map = () => {}
+
+const Map = () => {
+  return (
+    
+  )
+}
 
 export default Map
-  
-
-

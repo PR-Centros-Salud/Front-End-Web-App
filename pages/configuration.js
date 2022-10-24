@@ -1,4 +1,3 @@
-
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -6,7 +5,6 @@ import { useState, useEffect } from 'react'
 import useAuth from '../hooks/useAuth'
 import UlComponent from '../components/UlComponet'
 import Map from '../components/Map'
-
 
 export default function Configuration() {
 
@@ -35,9 +33,7 @@ export default function Configuration() {
 
 
 const AdminConfiguration = () => {
-    const render = (status, Status) => {
-        return <h1>{status}</h1>;
-      };
+
     return (
         <>
         <div className='configuration-page-section-1'>
@@ -98,14 +94,8 @@ const AdminConfiguration = () => {
                             />
                         </div>
                         </div>
-                        <div>
-                            <Map
-                                isMarkerShown
-                                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCAkuq1LDQC79K8q269PkISvb_dZl71fnA"
-                                loadingElement={<div style={{ height: `100%` }} />}
-                                containerElement={<div style={{ height: `400px` }} />}
-                                mapElement={<div style={{ height: `100%` }} />}
-                            />
+                        <div className='leaflet-container'>
+                            <Map />
                         </div>
                 </form>
             </div>

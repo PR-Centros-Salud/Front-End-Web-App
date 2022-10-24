@@ -1,0 +1,112 @@
+@import './../mixins.scss';
+@import './../variables.scss';
+
+.appointment-card-doctor{
+    @include flex;
+    width: 90%;
+    height: 10vh;
+    color: white;
+    margin-left: 10vh;
+    margin-bottom: 1vh;
+    margin-right: auto;
+    background-color: $secondary-bg-color;
+    border-radius: 1vh;
+    .image-container{
+        @include flex;
+        margin-left: 1%;
+        .image-person{
+            border-radius: 1vh;
+        }
+
+    }
+    .information-container{
+        @include flex;
+        flex-direction: row;
+        lb{
+            font-size: 1.2rem;
+        }
+        .name{
+            color: white;
+        }
+        .specialty{
+            color: white;
+        }
+        .date{
+            color: white;
+        }
+        .time{
+            color: white;
+        }
+        .container-full-name{
+            @include flex;
+            width: 8vw;
+            height: 5vh;
+
+            margin-left: 8vh;
+            .full-name{
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        }
+        .container-email{
+            @include flex;
+            width: 5vw;
+            height: 5vh;
+
+            margin-left: 12vh;
+            .email{
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        }
+        .container-date{
+            @include flex;
+            width: 5vw;
+            height: 5vh;
+
+            margin-left: 11vh;
+            .date{
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        .container-time{
+            @include flex;
+            width: 5vw;
+            height: 5vh;
+
+            margin-left: 10vh;
+            .time{
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+        }
+        .container-area{
+            @include flex;
+            width: 5vw;
+            height: 5vh;
+
+            margin-left: 10vh;
+            .area{
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        .container-status{
+            @include flex;
+            width: 5vw;
+            height: 4vh;
+            background-color: #247038;
+            margin-left: 10vh;
+            border-radius: 2vh;
+            .status{
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+}

@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Combobox from "react-widgets/Combobox";
 
 export default function DoctorAddNoExists() {
     return (

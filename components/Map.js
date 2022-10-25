@@ -1,9 +1,47 @@
+import React from 'react'
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
 
-
-const Map = () => {
-  return (
-    
-  )
+const mapStyles = {
+    width: '50%',
+    height: '70%'
 }
 
-export default Map
+export class MapContainer extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            marker: {}
+        }
+    }
+
+    onMapClicked = (mapProps, map, clickEvent) => {
+        const { latLng } = clickEvent
+        const lat = latLng.lat()
+        const lng = latLng.lng()
+        this.setState({
+            marker: {
+                position: { lat, lng }
+            }
+        })
+    }
+
+    render() {   
+        return (
+            <Map
+                google={this.props.google}
+                zoom={10}
+                style={mapStyles}
+                initialCenter={{ lat: -17.413977, lng: -66.165321}}
+                onClick={this.onMapClicked}
+            >
+                {this.state.marker.position != null && (
+                    <Marker position={this.state.marker.position} />
+                )}
+            </Map>
+        )
+    }
+}
+
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyCFBWXdvddjYDyCio_jOFzURRSAq8smDsU'
+})(MapContainer)

@@ -18,8 +18,6 @@ export default function Dashboard({title}) {
     let [isAdmin, setIsAdmin] = useState(false);
     let [user, setUser] = useState(null);
     const { auth, login, logout } = useAuth() 
-    console.log(title)
-
     
     if (!auth) {
         router.push('/login')

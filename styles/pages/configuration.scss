@@ -6,6 +6,48 @@
     width: 100%;
     flex-direction: column;
     background-color: #121418;
+    align-items: flex-start;
+
+    .top-part-ul {
+        @include flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-color: $main-bg-color;
+        
+        ul {
+            width: 30%;
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            background-color: $main-bg-color;
+        }
+        
+        li {
+            margin: auto;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .admin-li {
+            margin-left: 5rem;
+        }
+        
+        li:after {
+            display: block;
+            content: '';
+            border-bottom: solid 1px #E84949;
+            padding-bottom: 1%;
+            transform: scaleX(0);
+            transition: transform 300ms ease-in-out;
+        }
+        
+        li:hover:after {
+            transform: scaleX(1);
+        }
+    }
+
     &-section-1{
         @include flex;
         width: 100%;
@@ -13,43 +55,6 @@
         flex-direction: column;
         color: $main-font-color;
         align-items: center;
-
-        .top-part-ul {
-            @include flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-            background-color: $main-bg-color;
-            
-            ul {
-                width: 30%;
-                display: flex;
-                flex-direction: row;
-                list-style: none;
-                background-color: $main-bg-color;
-            }
-            
-            li {
-                margin: auto;
-                color: white;
-                font-size: 1.3rem;
-                cursor: pointer;
-            }
-            
-            li:after {
-                display: block;
-                content: '';
-                border-bottom: solid 1px #E84949;
-                padding-bottom: 1%;
-                transform: scaleX(0);
-                transition: transform 300ms ease-in-out;
-            }
-            
-            li:hover:after {
-                transform: scaleX(1);
-            }
-        }
-        
 
         &-title {
             @include flex;
@@ -124,9 +129,13 @@
         height: 100%;
         background-color: #121418;
 
-        .leaflet-container {
-            width: 30%;
+        .map-container {
+            @include flex;
+            position: fixed;
+            flex-direction: column; 
+            width: 70%;
             height: 50%;
+            margin-left: 3rem;
         }
 
         h2{

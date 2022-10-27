@@ -1,0 +1,57 @@
+@import './../mixins.scss';
+@import './../variables.scss';
+
+.showrooms-page{
+    width: 100%;
+    height: 100%;
+    background-color:$main-bg-color;
+    p{
+        font-size: 1.2rem;
+        font-weight: 600;
+        
+        color: white;
+        margin: 0;
+        margin-left: 10%;
+    }
+    &-body{
+        width: 100%;
+        height: 100%;
+        background-color:$main-bg-color;
+        table{
+            border-collapse: collapse;
+            width: 80%;
+            margin-left: 10%;
+            border-radius: 8px;
+            border-collapse: separate;
+            border-spacing: 0 0.5em;
+            text-align: center;
+            color: white;
+            thead{
+                height: 5vh;
+                background-color:$main-bg-color;
+            }
+            tbody{
+                height: 10vh;
+                tr{
+                    margin-top: 2%;
+                    margin-bottom: 2%;
+                }
+                td {
+                    border: solid 1px $secondary-bg-color;
+                    border-style: none none none none;
+                    padding: 10px;
+                  }
+                  
+                  tr td:first-child { border-top-left-radius: 10px; }
+                  tr td:last-child { border-top-right-radius: 10px; }
+                  
+                  tr td:first-child { border-bottom-left-radius: 10px; }
+                  tr td:last-child { border-bottom-right-radius: 10px; }
+                  
+                background-color: $secondary-bg-color;
+            }
+        }
+       
+    }
+  
+}

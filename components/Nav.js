@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "next/image"
-import { faGear, faHospital, faBorderAll, faUserDoctor, faCalendarDays, faUser, faClipboard, faChevronLeft, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faGear, faHospital, faBorderAll, faUserDoctor, faCalendarDays, faUser, faClipboard, faChevronLeft, faMagnifyingGlass, faDoorOpen, faFlaskVial, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useState } from "react";
@@ -45,6 +45,7 @@ const Nav = () => {
                   : (
                     <DoctorOptions/>
                   )}  
+                  <LogOut/>
                       
                 
             </div>
@@ -56,6 +57,14 @@ const Nav = () => {
   )
 }
 
+const LogOut = () =>{
+    <div>
+    <FontAwesomeIcon icon={faArrowRightFromBracket} />
+    <Link href={"/login"}>
+        <input type="button" value={'Cerrar Session'} name="logout"/>
+    </Link>
+    </div>
+}
 const AdminOptions = () => {
     return (
         <>
@@ -69,6 +78,18 @@ const AdminOptions = () => {
                 <FontAwesomeIcon icon={faUserDoctor} />
                 <Link href={'/admin/doctors'}>
                     <input type="button" value={'Doctores'} name="doctors"/>
+                </Link>
+            </div>
+            <div>
+                <FontAwesomeIcon icon={faDoorOpen} />
+                <Link href={'/admin/rooms'}>
+                    <input type="button" value={'Rooms'} name="rooms"/>
+                </Link>
+            </div>
+            <div>
+                <FontAwesomeIcon icon={faFlaskVial} />
+                <Link href={'/admin/laboratoryservice'}>
+                    <input type="button" value={'LaboratoryService'} name="laboratoryservice"/>
                 </Link>
             </div>
             <div className='nav-section-1-3'>

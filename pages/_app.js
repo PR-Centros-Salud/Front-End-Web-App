@@ -97,7 +97,7 @@ function MyApp({ Component, pageProps }) {
         }
         <Layout>
           {excludeNav.includes(pathname) ? null : <TopBar />}
-          {excludeUl.includes(pathname) ? null : <UlComponent />}
+          {/* {excludeUl.includes(pathname) ? null : <UlComponent />} */}
           <Component {...pageProps} />
         </Layout>
       </div>

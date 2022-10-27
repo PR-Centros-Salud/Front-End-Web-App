@@ -31,6 +31,7 @@ export default function Home() {
         const response = await loginApi(values)
         if (response) {
           const credentials = jwtDecode(response.data.access_token)
+          console.log(credentials)
           if (credentials.discriminator === 'admin' || credentials.discriminator === 'medical_personal') {
             login(response.data.access_token)
             toast.success("Login exitoso.")

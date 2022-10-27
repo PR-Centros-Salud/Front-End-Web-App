@@ -9,7 +9,10 @@
 @import './pages/adddoctors.scss';
 @import './pages/appointmentDetails.scss';
 @import './pages/appointments.scss';
-@import './pages/adddoctorsnoexists.scss';
+@import './pages/addrooms.scss';
+@import './pages/showrooms.scss';
+@import './pages/laboratoryservice.scss';
+
 
 // Variables
 @import './variables.scss';
@@ -22,7 +25,7 @@
 @import './components/DoctorCard.scss';
 @import './components/UlComponent.scss';
 @import './components/NavLandingPage.scss';
-@import './components/AppointmentCardDoctor.scss';
+
 
 // Font Imports
 @import url('https://fonts.googleapis.com/css2?family=Yantramanav&display=swap');

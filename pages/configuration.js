@@ -63,7 +63,7 @@ const InstitutionConfiguration = () => {
             <div className='configuration-page-section-1-profile-picture'>
                 <Image
                     priority
-                    src="images/hospital.png"
+                    src="/images/hospital.png"
                     height={100}
                     width={100}
                     alt="profile picture"

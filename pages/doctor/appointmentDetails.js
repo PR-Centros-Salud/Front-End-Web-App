@@ -8,7 +8,7 @@ export default function appointmentDetails() {
                 <div className='details-content-left'>
                     <Image
                         priority
-                        src="/images/doctor-image.png"
+                        src="/images/image 2.svg"
                         height={200}
                         width={200}
                         alt="Doctor"
@@ -27,14 +27,24 @@ export default function appointmentDetails() {
                     <hr />  
                     <div className='information-part'>
                         <div className='information-part-1'>
-                            <h4>Doctor:</h4>
-                            <input type="text" />
-                            <h4>Hospital/Clínica:</h4>
-                            <input type="text" />
-                            <h4>Área:</h4>
-                            <input type="text" />
-                            <h4>Hora:</h4>
-                            <input type="text" />
+                            <div className='information-part-1-1'>
+                                <h4>Doctor:</h4>
+                                <input type="text" />
+                                <h4>Hospital/Clínica:</h4>
+                                <input type="text" />
+                            </div>
+                            <div className='information-part-1-2'>
+                                <h4>Área:</h4>
+                                <input type="text" />
+                                <h4>Hora:</h4>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div className='information-part-2'>
+                            <h1 className="option-h1">OPCIONES</h1>
+                            <hr />
+                            <button>Finalizar</button>
+                            <button>Cancelar</button>
                         </div>
                     </div>
                 </div>

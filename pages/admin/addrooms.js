@@ -41,9 +41,7 @@ export default function addRooms() {
                             <div className="button-discard-container">
                                 <button className="button-discard">Descartar</button> 
                             </div>
-                        </div>
-
-                        
+                        </div>          
                 </div>
             </div>
             

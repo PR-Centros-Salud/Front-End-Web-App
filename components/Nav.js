@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "next/image"
-import { faGear, faHospital, faBorderAll, faUserDoctor, faCalendarDays, faUser, faClipboard, faChevronLeft, faMagnifyingGlass, faDoorOpen, faFlaskVial, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faGear, faHospital, faBorderAll, faUserDoctor, faCalendarDays, faUser, faClipboard, faChevronLeft, faMagnifyingGlass, faDoorOpen, faFlaskVial, faArrowRightFromBracket, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useState } from "react";
@@ -13,7 +13,7 @@ const Nav = () => {
     const { pathname } = router
     let [isAdmin, setIsAdmin] = useState(false)
     let [password, setPassword] = useState("")
-    const { auth, login } = useAuth()
+    const { auth, login, logout } = useAuth()
     
     useEffect(() => {
         // Perform localStorage action
@@ -21,6 +21,11 @@ const Nav = () => {
             setIsAdmin(auth.idUser.discriminator === 'admin' ? true : false)
         }
     }, [])
+
+    const handleLogout = () => {
+        logout()
+        router.push('/login')
+    }
 
 
   return (
@@ -40,16 +45,17 @@ const Nav = () => {
             <div className='nav-section-1-2'>
                 {isAdmin
                   ? (
-                      <AdminOptions/>
+                    <AdminOptions router={router} />
                   )
                   : (
-                    <DoctorOptions/>
-                  )}  
-                  <LogOut/>
-                      
+                    <DoctorOptions router={router} />
+                )}   
                 
-            </div>
-            
+                <div>
+                    <FontAwesomeIcon icon={faRightFromBracket} />
+                    <input onClick={handleLogout} type="button" value={'Cerrar Sesión'} name="logout"/>
+                </div>
+            </div>   
         </div>
     </nav>
     
@@ -57,80 +63,50 @@ const Nav = () => {
   )
 }
 
-const LogOut = () =>{
-    <div>
-    <FontAwesomeIcon icon={faArrowRightFromBracket} />
-    <Link href={"/login"}>
-        <input type="button" value={'Cerrar Session'} name="logout"/>
-    </Link>
-    </div>
-}
-const AdminOptions = () => {
+const AdminOptions = ({router}) => {
     return (
         <>
-            <div className='div-home'>
+            <div className='div-home' onClick={() => router.push('/dashboard')}>
                 <FontAwesomeIcon icon={faBorderAll} />
-                <Link href={'/dashboard'}>
-                    <input type="button" value={'Inicio'} name="home"/>
-                </Link>
+                <input type="button" value={'Inicio'} name="home"/>
             </div>
-            <div>
+            <div onClick={() => router.push('/admin/doctors')}>
                 <FontAwesomeIcon icon={faUserDoctor} />
-                <Link href={'/admin/doctors'}>
-                    <input type="button" value={'Doctores'} name="doctors"/>
-                </Link>
+                <input type="button" value={'Doctores'} name="doctors"/>
             </div>
-            <div>
+            <div onClick={() => router.push('/admin/rooms')}>
                 <FontAwesomeIcon icon={faDoorOpen} />
-                <Link href={'/admin/rooms'}>
-                    <input type="button" value={'Rooms'} name="rooms"/>
-                </Link>
+                <input type="button" value={'Consultorios'} name="rooms"/>
             </div>
-            <div>
+            <div onClick={() => router.push('/admin/laboratoryservice')}>
                 <FontAwesomeIcon icon={faFlaskVial} />
-                <Link href={'/admin/laboratoryservice'}>
-                    <input type="button" value={'LaboratoryService'} name="laboratoryservice"/>
-                </Link>
+                <input type="button" value={'Servicios de laboratorio'} name="laboratoryservice"/>
             </div>
             <div className='nav-section-1-3'>
-                <div>
+                <div onClick={() => router.push('/configuration')}>
                     <FontAwesomeIcon icon={faGear} />
-                    <Link href={"/configuration"}>
-                        <input type="button" value={'Configuración de Institución'} name="settings"/>
-                    </Link>
+                    <input type="button" value={'Configuración'} name="settings"/>
                 </div>
             </div>
         </>    
     )
 }
 
-const DoctorOptions = () => {
+const DoctorOptions = ({router}) => {
     return (
         <>
-            <div className='div-home'>
+            <div className='div-home' onClick={() => router.push('/dashboard')}>
                 <FontAwesomeIcon icon={faBorderAll} />
-                <Link href={'/dashboard'}>
-                    <input type="button" value={'Inicio'} name="home"/>
-                </Link>
+                <input type="button" value={'Inicio'} name="home"/>
             </div>
-            <div>
+            <div onClick={() => router.push('#')}>
                 <FontAwesomeIcon icon={faCalendarDays} />
                 <input type="button" value={'Citas Medicas'} name="appointments"/>
             </div>
-            <div>
-                <FontAwesomeIcon icon={faUser} />
-                <input type="button" value={'Pacientes'} name="patients"/>
-            </div>
-            <div>
-                <FontAwesomeIcon icon={faClipboard} />
-                <input type="button" value={'Reportes'} name="reports"/>
-            </div>
             <div className='nav-section-1-3'>
-                <div>
+                <div onClick={() => router.push('/configuration')}>
                     <FontAwesomeIcon icon={faGear} />
-                    <Link href={"configuration"}>
-                        <input type="button" value={'Configuración'} name="settings"/>
-                    </Link>
+                    <input type="button" value={'Configuración'} name="settings"/>
                 </div>
             </div>
         </>

@@ -23,7 +23,7 @@ export const getMeApi = async (logout) => {
     try {
         const url = `${BASE_PATH}/person/me`
         const result = await authFetch(url, { method: "GET" }, logout)
-        return result ? result : null
+        return result ? result : null 
     } catch (e) { 
         console.log(e)
         return null

@@ -62,27 +62,63 @@
 
                 &-1 {
                     @include flex;
-                    flex-direction: column;
+                    flex-direction: row;
                     width: 100%;
                     height: 100%;
                     align-items: flex-start;
                     justify-content: flex-start;
 
-                    h4 {
-                        margin-top: 1rem;
-                        margin-bottom: 0;
-                        color: #adb5bd;
+                    &-1 {
+                        @include flex;
+                        flex-direction: column;
+                        width: 100%;
+                        height: 100%;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+
+                        h4 {
+                            margin-top: 1rem;
+                            margin-bottom: 0;
+                            color: #adb5bd;
+                        }
+    
+                        input {
+                            margin-top: 0.5rem;
+                            background-color: $main-bg-color;
+                            border-radius: 5px;
+                            border: none;
+                            width: 40%;
+                            height: 5%;
+                            color: $secondary-font-color;
+                            pointer-events: none;
+                        }
+
                     }
 
-                    input {
-                        margin-top: 0.5rem;
-                        background-color: $main-bg-color;
-                        border-radius: 5px;
-                        border: none;
-                        width: 40%;
-                        height: 5%;
-                        color: $secondary-font-color;
-                        pointer-events: none;
+                    &-2 {
+                        @include flex;
+                        flex-direction: column;
+                        width: 100%;
+                        height: 100%;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+
+                        h4 {
+                            margin-top: 1rem;
+                            margin-bottom: 0;
+                            color: #adb5bd;
+                        }
+    
+                        input {
+                            margin-top: 0.5rem;
+                            background-color: $main-bg-color;
+                            border-radius: 5px;
+                            border: none;
+                            width: 40%;
+                            height: 5%;
+                            color: $secondary-font-color;
+                            pointer-events: none;
+                        }
                     }
                 }
             }
@@ -91,6 +127,12 @@
                 margin: 0;
                 font-size: 1.5rem;
                 color: green;
+            }
+
+            .option-h1 {
+                margin: 0;
+                font-size: 1.5rem;
+                color: #adb5bd;
             }
 
             hr {

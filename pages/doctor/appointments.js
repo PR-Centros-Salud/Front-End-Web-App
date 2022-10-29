@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AppointmentCardDoctor from "../components/AppointmentCardDoctor";
+import AppointmentCard from "../components/AppointmentCard";
 import { useState, useEffect } from 'react'
 
 

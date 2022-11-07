@@ -17,7 +17,7 @@ const DoctorCard = ({doctor}) => {
             <div className='information'>
                 <h2 className='full-name'>{fullName}</h2>
                 <h6 className='specialty'>{doctor.contract.role}</h6>
-                <Link href={"configuration"}>
+                <Link href={"#"}>
                     <button className='button-1'>Ver Perfil</button>
                 </Link>
             </div>

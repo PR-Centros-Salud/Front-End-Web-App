@@ -192,8 +192,8 @@ const DoctorConfiguration = () => {
                 <Image
                     priority
                     src="/images/image 2.svg"
-                    height={150}
-                    width={150}
+                    height={100}
+                    width={100}
                     alt="profile picture"
                 />
                 <div className='configuration-page-section-1-profile-buttons'>

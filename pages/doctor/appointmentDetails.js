@@ -43,8 +43,10 @@ export default function appointmentDetails() {
                         <div className='information-part-2'>
                             <h1 className="option-h1">OPCIONES</h1>
                             <hr />
-                            <button>Finalizar</button>
-                            <button>Cancelar</button>
+                            <div className='information-part-2-1'>
+                                <button className='button1'>Finalizar</button>
+                                <button className='button2'>Cancelar</button>
+                            </div>
                         </div>
                     </div>
                 </div>

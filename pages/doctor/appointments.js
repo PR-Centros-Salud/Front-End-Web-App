@@ -1,6 +1,5 @@
 import Image from "next/image";
-import AppointmentCard from "../components/AppointmentCard";
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 
 export default function Appoinments() {
@@ -27,7 +26,7 @@ export default function Appoinments() {
 const ShowAllAppointments = () => {
   return (
     <div className="appoinment-page">
-        <div className="appoinment-page-body">
+        <div className="showrooms-page-body">
                 <table>
                     <thead>
                         <tr>
@@ -45,7 +44,7 @@ const ShowAllAppointments = () => {
                             <div className="image-container">
                               <Image
                                   priority
-                                  src="/images/doctor-image.png"
+                                  src="/images/image_4.png"
                                   height={50}
                                   width={50}
                                   alt="doctor"
@@ -58,10 +57,9 @@ const ShowAllAppointments = () => {
                             <td>Pediatria</td>
                             <td>Finalizada</td>
                         </tr>
-                   
+
                     </tbody>
 
-       
                 </table>
               </div>
         </div>
@@ -89,7 +87,7 @@ const ShowUpcomingAppointments = () => {
                         <tr>
                             <Image
                                 priority
-                                src="/images/doctor-image.png"
+                                src="/images/image 2.svg"
                                 height={50}
                                 width={50}
                                 alt="doctor"
@@ -132,7 +130,7 @@ const ShowPastAppointments = () => {
                         <tr>
                             <Image
                                 priority
-                                src="/images/doctor-image.png"
+                                src="/images/image 2.svg"
                                 height={50}
                                 width={50}
                                 alt="doctor"
@@ -177,7 +175,7 @@ const ShowNewAppointments = () => {
                         <tr>
                             <Image
                                 priority
-                                src="/images/doctor-image.png"
+                                src="/images/image 2.svg"
                                 height={50}
                                 width={50}
                                 alt="doctor"
@@ -189,15 +187,9 @@ const ShowNewAppointments = () => {
                             <td>Pediatria</td>
                             <td>Finalizada</td>
                         </tr>
-                   
                     </tbody>
-
-       
                 </table>
               </div>
         </div>
-     
-
   );
-  
 }

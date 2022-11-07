@@ -63,14 +63,15 @@
             }
 
             input {
-                width: 150px;
-                height: 30px;
+                width: 50%;
+                height: 100%;
                 border: none;
                 background-color: transparent;
                 color: $main-font-color;
                 font-size: 1rem;
                 font-weight: 600;
                 text-align: left;
+                cursor: pointer;
                 overflow-wrap: break-word;
                 inline-size: 150px;
             }
@@ -103,14 +104,15 @@
             }
 
             input {
-                width: 150px;
-                height: 30px;
+                width: 50%;
+                height: 100%;
                 border: none;
                 background-color: transparent;
                 color: $main-font-color;
                 font-size: 1rem;
                 font-weight: 600;
                 text-align: left;
+                cursor: pointer;
                 overflow-wrap: break-word;
                 inline-size: 150px;
             }
@@ -122,5 +124,4 @@
             }
         }
     }
-    
 }

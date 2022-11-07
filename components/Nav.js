@@ -99,7 +99,7 @@ const DoctorOptions = ({router}) => {
                 <FontAwesomeIcon icon={faBorderAll} />
                 <input type="button" value={'Inicio'} name="home"/>
             </div>
-            <div onClick={() => router.push('#')}>
+            <div onClick={() => router.push('doctor/appointments')}>
                 <FontAwesomeIcon icon={faCalendarDays} />
                 <input type="button" value={'Citas Medicas'} name="appointments"/>
             </div>

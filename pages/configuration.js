@@ -97,7 +97,6 @@ const InstitutionConfiguration = ({ institution }) => {
         },
         onSubmit: async (values) => { 
             setLoading(true)
-            console.log(values.latitude)
             if (values.name != institution.name || values.address != institution.address || values.phone != institution.phone || values.latitude != institution.latitude || values.longitude != institution.longitude) {
                 if(values.name == '' || values.address == '' || values.phone == '') {
                     toast.error('Todos los campos son obligatorios')

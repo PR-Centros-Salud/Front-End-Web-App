@@ -65,7 +65,6 @@ export const authFetch = async (url, params, logout) => {
         if (isTokenExpired(token)) {
             logout()
         } else {
-            console.log(params.body)
             const paramsTemp = {
                 data: params.body,
                 headers: {

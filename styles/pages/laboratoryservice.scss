@@ -11,8 +11,14 @@
     &-container{
         width: 100%;
         height: 100%;
-        margin-left: 8%;
+        > div:not(.loader) {
+            margin-left: 8%;
+        }
+        > .loader{
+            width: 80%;
+        }
         &-title{
+
             h3{
                 margin: 0;
                 margin-bottom: 2vh;
@@ -36,22 +42,35 @@
                 border-radius: 10px;
                 font-size: 1.5rem;
                 font-weight: 600;
+                color: $main-font-color;
 
                 border: none;
                 margin-right: 1vh;
+                margin-top: 1vh;
+            }
+            select{
+                width: 16vw;
+                height: 5vh;
+                background-color: #1B1F24;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: 600;
+                color: $main-font-color;
+
+                border: none;
+                margin-right: 1vh;
+                margin-top: 1vh;
             }
             h3{
                 margin: 0;
-                margin-bottom: 2vh;
             }
             h4{
                 margin: 0;
-                margin-bottom: 2vh;
+                margin-top: 1vh;
             }
         }
         &-buttons{
             width: 66.5%;
-            height: 100%;
             background-color: $main-bg-color;
             display: flex;
             flex-direction: column;
@@ -73,52 +92,59 @@
             }
 
         }
-        &-show{
+        &-show {
             width: 100%;
-            height: 100%;
+            height: 50%;
             background-color:$main-bg-color;
             display: flex;
             flex-direction: column;
             p{
                 margin: 0;
             }
-            table{
-                border-collapse: collapse;
-                width: 25%;
-                border-radius: 8px;
-                border-collapse: separate;
-                border-spacing: 0 0.5em;
-                text-align: left;
-                color: white;
-                margin-left: 8%;
-                thead{
-                    color:gray  ;
-                    height: 5vh;
-                    background-color:$main-bg-color;
-                }
-                tbody{
-                    height: 10vh;
-                    tr{
-                        margin-top: 2%;
-                        margin-bottom: 2%;
+
+            &-tables {
+                @include flex;
+                flex-direction: row;
+                width: 100%;
+                height: 100%;
+                margin-top: 2vh;
+
+                table{
+                    border-collapse: collapse;
+                    width: 25%;
+                    border-radius: 8px;
+                    border-collapse: separate;
+                    border-spacing: 0 0.5rem;
+                    text-align: left;
+                    color: white;
+                    margin-left: 5%;
+                    thead{
+                        color:gray;
+                        height: 5vh;
+                        background-color:$main-bg-color;
                     }
-                    td {
-                        border: solid 1px $secondary-bg-color;
-                        border-style: none none none none;
-                        padding: 10px;
-                      }
-                      
-                      tr td:first-child { border-top-left-radius: 10px; }
-                      tr td:last-child { border-top-right-radius: 10px; }
-                      
-                      tr td:first-child { border-bottom-left-radius: 10px; }
-                      tr td:last-child { border-bottom-right-radius: 10px; }
-                      
-                    background-color: $secondary-bg-color;
-            }  }
+                    tbody{
+                        height: 10vh;
+                        tr{
+                            margin-top: 2%;
+                            margin-bottom: 2%;
+                        }
+                        td {
+                            border: solid 1px $secondary-bg-color;
+                            border-style: none none none none;
+                            padding: 10px;
+                        }
+                          
+                          tr td:first-child { border-top-left-radius: 10px; }
+                          tr td:last-child { border-top-right-radius: 10px; }
+                          
+                          tr td:first-child { border-bottom-left-radius: 10px; }
+                          tr td:last-child { border-bottom-right-radius: 10px; }
+                          
+                        background-color: $secondary-bg-color;
+                    }  
+                }
+            }    
         }
-
-
     }
-
 }

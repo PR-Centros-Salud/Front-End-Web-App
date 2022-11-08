@@ -136,6 +136,7 @@
             width: 70%;
             height: 50%;
             margin-left: 3rem;
+            z-index: 1;
         }
 
         h2{
@@ -143,6 +144,7 @@
             font-size: 1rem;
         }
         &-inputs{
+            z-index: 2;
             input{
                 height: 45%;
                 background-color: #1B1F24;
@@ -159,6 +161,7 @@
                     display: flex;
                     flex-direction: column;
                     margin-left : 5%;
+                    z-index: 20;
                 }
                 .inputs-column-2{
                     display: flex;
@@ -178,6 +181,7 @@
             flex-direction: row;
             margin-left: 5%;
             margin-top: 2%;
+            z-index: 20;
             .button-1{
                 background-color: #E84949;
                 color: $main-font-color;

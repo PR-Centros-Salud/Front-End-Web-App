@@ -5,6 +5,12 @@ import { useState, useEffect } from 'react'
 import useAuth from '../hooks/useAuth'
 import UlComponent from '../components/UlComponet'
 import Map from '../components/Map'
+import { useFormik } from 'formik';
+import * as Yup from "yup";
+import { toast } from 'react-toastify';
+import { changePasswordApi } from '../api/user'
+import { getAdminByIdApi, updateInstitutionApi } from '../api/admin'
+import Loader from '../components/Loader'
 
 export default function Configuration() {
 
@@ -35,6 +41,26 @@ export default function Configuration() {
 const AdminConfiguration = () => {
 
     const [tab, setTab] = useState(1)
+    const [loading, setLoading] = useState(false)
+    const { auth, login, logout } = useAuth()
+    const [admin, setAdmin] = useState(null)
+
+    useEffect(() => {
+        (async () => {
+            setLoading(true)
+        
+            const user = await getAdminByIdApi(auth.idUser.id, logout)
+            if (user && user?.data) {
+                console.log(user)
+                setAdmin(user.data)
+                setLoading(false)
+            } else {
+                toast.error('Error al cargar los datos')
+            }
+        })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
 
     return (
         <>
@@ -43,15 +69,60 @@ const AdminConfiguration = () => {
                 <li onClick={() => {setTab(1)}}>Institución</li>
                 <li onClick={() => {setTab(2)}} className='admin-li'>Administrador</li>
             </ul>  
-        </div>
-        {
-            tab === 1 ? <InstitutionConfiguration/> : <AdminConfiguration2/>
-        }
+            </div>
+            {loading && <Loader />}
+            {
+                (loading == false && admin != null) && tab === 1 && <InstitutionConfiguration institution={admin?.institution}/>
+            }
+            {
+                (loading == false && admin != null) && tab === 2 && <AdminConfiguration2/>
+            }
+
         </>
     )
 }
 
-const InstitutionConfiguration = () => {
+const InstitutionConfiguration = ({ institution }) => {
+    const [loading, setLoading] = useState(false)
+    const router = useRouter()
+    const { auth, login, logout } = useAuth()
+
+    const formik = useFormik({
+        initialValues: {
+            name: institution?.name,
+            address: institution?.address,
+            phone: institution?.phone,
+            latitude: institution?.latitude,
+            longitude: institution?.longitude,
+        },
+        onSubmit: async (values) => { 
+            setLoading(true)
+            console.log(values.latitude)
+            if (values.name != institution.name || values.address != institution.address || values.phone != institution.phone || values.latitude != institution.latitude || values.longitude != institution.longitude) {
+                if(values.name == '' || values.address == '' || values.phone == '') {
+                    toast.error('Todos los campos son obligatorios')
+                } else {
+                    const response = await updateInstitutionApi(institution.id, values, logout)
+                    if (response) {
+                        toast.success('Datos actualizados correctamente')
+                        router.reload()
+                        setLoading(false)
+                    } else {
+                        toast.error('Error al actualizar los datos')
+                    }
+                }
+            } else {
+                toast.error('No se han realizado cambios')
+            }
+        }
+    })
+
+    const handleMapChange = (lat, lng) => { 
+        formik.setFieldValue('latitude', lat)
+        formik.setFieldValue('longitude', lng)
+    }
+
+
     return (
         <>
         <div className='configuration-page-section-1'>
@@ -84,33 +155,36 @@ const InstitutionConfiguration = () => {
                             <h3>Nombre</h3>
                             <input
                                 type="text"
-                                className=""
+                                value={formik.values.name}
+                                onChange={formik.handleChange("name")}    
                             />
                         </div>
                         <div className='input-name'>
                             <h3>Dirección</h3>
                             <input
                                 type="text"
-                                className=""
+                                value={formik.values.address}
+                                onChange={formik.handleChange("address")}    
                             />
                         </div>
                         <div className='input-email'>
                             <h3>Número de Teléfono</h3>
                             <input
                                 type="text"
-                                className=""
+                                value={formik.values.phone}
+                                onChange={formik.handleChange("phone")}
                             />
                         </div>
                     </div>
                     <div className="map-container">
                         <h3>Ubicación</h3>
-                        <Map/>
+                            <Map lat={formik.values.latitude} lng={formik.values.longitude} handleMapChange={handleMapChange} />
                     </div>
                 </form>
             </div>
             <div className='configuration-page-section-2-information-buttons'>
-                <button className='button-1'>Guardar</button>
-                <button className='button-2'>Descartar</button>
+                    <button className='button-1' onClick={formik.handleSubmit}>{loading ? "Cargando..." : "Guardar"}</button>
+                <button className='button-2' onClick={() => router.push('/dashboard')}>Descartar</button>
             </div>
         </div>
         </>
@@ -118,6 +192,52 @@ const InstitutionConfiguration = () => {
 }
 
 const AdminConfiguration2 = () => {
+
+    const [isLoading, setIsLoading] = useState(false)
+    const router = useRouter()
+    const { auth, login, logout } = useAuth()
+    const formik = useFormik({
+        initialValues: {
+            oldPassword: '',
+            newPassword: '',
+            confirmPassword: ''
+        },
+        onSubmit: async (values) => {
+            setIsLoading(true)
+            if (values.oldPassword !== values.newPassword) {
+                if (values.newPassword === values.confirmPassword) {
+                    if (values.newPassword.length >= 12) {
+                        const response = await changePasswordApi(logout, values.oldPassword, values.newPassword)
+                        if (response) {
+                            console.log(response)
+                            if (response?.status && response.status >= 200 && response.status < 300) {
+                                toast.success('Contraseña cambiada con éxito')
+                                logout()
+                                router.push('/login')
+                            } else {
+                                toast.error('Contraseña incorrecta')
+                            }
+                        }
+                        else {
+                            toast.error('Error al cambiar la contraseña')
+                        }
+                    }
+                    else {
+                        toast.error('La contraseña debe tener al menos 12 caracteres')
+                    }
+                }
+                else {
+                    toast.error('Las contraseñas no coinciden')
+                }
+            } else {
+                toast.error('La contraseña nueva no puede ser igual a la anterior')
+            }
+
+            setIsLoading(false)
+        }
+    })
+
+
     return (
         <>
         <div className='configuration-page-section-1'>
@@ -150,28 +270,31 @@ const AdminConfiguration2 = () => {
                             <h3>Contraseña Antigua</h3>
                             <input
                                 type="password"
-                                className=""
+                                value={formik.values.oldPassword}    
+                                onChange={formik.handleChange("oldPassword")}    
                             />
                         </div>
                         <div className='input-name'>
                             <h3>Contraseña Nueva</h3>
                             <input
                                 type="password"
-                                className=""
+                                value={formik.values.newPassword}
+                                onChange={formik.handleChange("newPassword")}
                             />
                         </div>
                         <div className='input-email'>
                             <h3>Confirmar Contraseña</h3>
                             <input
                                 type="password"
-                                className=""
+                                value={formik.values.confirmPassword}
+                                onChange={formik.handleChange("confirmPassword")}
                             />
                         </div>
                     </div>
                 </form>
             </div>
             <div className='configuration-page-section-2-information-buttons'>
-                <button className='button-1'>Guardar</button>
+                    <button className='button-1' onClick={formik.handleSubmit}>{ isLoading ? "Cargando..." : "Guardar"}</button>
             </div>
         </div>
         </>

@@ -10,7 +10,9 @@ export class MapContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            marker: {}
+            marker: {
+                position: {lat: props.lat,lng: props.lng}
+            }
         }
     }
 
@@ -23,6 +25,7 @@ export class MapContainer extends React.Component {
                 position: { lat, lng }
             }
         })
+        this.props.handleMapChange(lat, lng)
     }
 
     render() {   

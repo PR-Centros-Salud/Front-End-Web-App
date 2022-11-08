@@ -30,6 +30,32 @@ export const getMeApi = async (logout) => {
     }
 }
 
+export const changePasswordApi = async (logout, old_password, new_password) => {
+    try {
+        const url = `${BASE_PATH}/person/update-password`
+        const formData = new FormData()
+        formData.append("old_password", old_password)
+        formData.append("new_password", new_password)
+        
+        const params = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: {
+                old_password,
+                new_password,
+            }
+        }
+        const result = await authFetch(url, params, logout)
+        return result ? result : null
+    } catch (e) {
+        console.log(e)
+        return null
+    }
+
+}
+
 export const authFetch = async (url, params, logout) => { 
     const token = getToken()
 
@@ -39,12 +65,14 @@ export const authFetch = async (url, params, logout) => {
         if (isTokenExpired(token)) {
             logout()
         } else {
+            console.log(params.body)
             const paramsTemp = {
-                ...params,
+                data: params.body,
                 headers: {
                     ...params?.headers,
                     Authorization: `Bearer ${token}`, 
-                }
+                },
+                method: params.method ? params.method : "GET",
             }
             try {
                 const response = await axios(url, paramsTemp)

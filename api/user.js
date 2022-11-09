@@ -34,8 +34,8 @@ export const changePasswordApi = async (logout, old_password, new_password) => {
     try {
         const url = `${BASE_PATH}/person/update-password`
         const formData = new FormData()
-        formData.append("old_password", old_password)
-        formData.append("new_password", new_password)
+        formData.append("old_password", old_password.trim())
+        formData.append("new_password", new_password.trim())
         
         const params = {
             method: "PATCH",

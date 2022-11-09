@@ -22,9 +22,9 @@ export const updateInstitutionApi = async (id, values, logout) => {
         const url = `${BASE_PATH}/institution/update/${id}`
         console.log(values)
         const formData = new FormData()
-        formData.append("name", values.name)
-        formData.append("address", values.address)
-        formData.append("phone", values.phone)
+        formData.append("name", values.name.trim())
+        formData.append("address", values.address.trim())
+        formData.append("phone", values.phone.trim())
         formData.append("latitude", values.latitude)
         formData.append("longitude", values.longitude)
         

@@ -32,7 +32,7 @@ export const createLaboratoryServiceApi = async (values, logout) => {
     try {
         const url = `${BASE_PATH}/institution/laboratory/create`
         const formData = new FormData()
-        formData.append("laboratory_service_name", values.name)
+        formData.append("laboratory_service_name", values.name.trim())
         formData.append("medical_personal_id", values.medId)
         
         const result = await authFetch(url, { method: "POST", body: formData, headers: { "Content-Type": "application/json" } }, logout)

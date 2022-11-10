@@ -22,28 +22,3 @@ export const getAdminByIdApi = async (id, logout) => {
     }
 }
 
-export const updateInstitutionApi = async (id, values, logout) => {
-    try {
-        const url = `${BASE_PATH}/institution/update/${id}`
-        console.log(values)
-        const formData = new FormData()
-        formData.append("name", values.name.trim())
-        formData.append("address", values.address.trim())
-        formData.append("phone", values.phone.trim())
-        formData.append("latitude", values.latitude)
-        formData.append("longitude", values.longitude)
-        
-        const params = {
-            body: formData,
-            headers: {
-                "Content-Type": "application/json"
-            }, 
-            method: "PATCH"
-        }
-        const result = await authFetch(url, { method: "PATCH", body: values }, logout)
-        return result ? result : null
-    } catch (e) { 
-        console.log(e)
-        return null
-    }
-}

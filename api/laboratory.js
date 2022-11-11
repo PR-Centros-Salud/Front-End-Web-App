@@ -19,11 +19,14 @@ export const getLaboratoryServicesApi = async (logout) => {
         return null
     }
 }
-
+// Function that will be used to get Laboratory Specialists from the API
 export const getLaboratorySpecialistsApi = async (id, logout) => {
     try {
+        // Define the URL
         const url = `${BASE_PATH}/medicalPersonal/labspecialists`
+        // Make the petition GET to the API
         const result = await authFetch(url, { method: "GET" }, logout)
+        
         return result ? result : null
     } catch (e) {
         console.log(e)

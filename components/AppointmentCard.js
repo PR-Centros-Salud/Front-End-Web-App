@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 const AppointmentCard = () => {
     return (
         <div className='appointment-card'>

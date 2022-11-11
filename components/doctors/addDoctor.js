@@ -7,9 +7,7 @@ import { useRouter } from 'next/router'
 import { getProvincesApi } from '../../api/config'
 import Loader from '../Loader'
 
-
 const AddDoctor = () => {
-
     const router = useRouter()
     let [loading, setLoading] = useState(false)
     let [provinces, setProvinces] = useState(null)

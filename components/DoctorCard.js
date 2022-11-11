@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 const DoctorCard = ({doctor}) => {
     console.log(doctor)
+    // We are adding the doctor´s information in the card.
     const fullName = `${doctor.first_name} ${doctor.last_name} ${doctor.second_last_name ? doctor.second_last_name : ''}`
 
     return (

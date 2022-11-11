@@ -3,8 +3,11 @@ import { getToken, isTokenExpired } from "./token"
 import FormData from "form-data"
 import axios from "axios"
 
+// In this document we will see the CRUD request functions of the user. 
+
 axios.defaults.headers["Access-Control-Allow-Origin"] = "*"
 
+// Function that will be used to get the user data
 export const loginApi = async (data) => {
     try {
         const url = `${BASE_PATH}/person/login`
@@ -19,6 +22,7 @@ export const loginApi = async (data) => {
     }
 }
 
+// Function that will be used to get the user data
 export const getMeApi = async (logout) => { 
     try {
         const url = `${BASE_PATH}/person/me`
@@ -30,6 +34,7 @@ export const getMeApi = async (logout) => {
     }
 }
 
+// Function that will be used to update the user password
 export const changePasswordApi = async (logout, old_password, new_password) => {
     try {
         const url = `${BASE_PATH}/person/update-password`
@@ -56,15 +61,20 @@ export const changePasswordApi = async (logout, old_password, new_password) => {
 
 }
 
+// Function that will control the token
 export const authFetch = async (url, params, logout) => { 
+    // Get the token from the local storage
     const token = getToken()
 
+    // If the token is expired, we will remove it from the local storage
     if (!token) {
         logout()
     } else {
+        // If the token is not expired, we will check if it is expired
         if (isTokenExpired(token)) {
             logout()
         } else {
+            // If the token is not expired, we will add it to the headers
             const paramsTemp = {
                 data: params.body,
                 headers: {
@@ -74,6 +84,7 @@ export const authFetch = async (url, params, logout) => {
                 method: params.method ? params.method : "GET",
             }
             try {
+                // If the token is not expired, we will make the request
                 const response = await axios(url, paramsTemp)
                 return response
             } catch (e) {

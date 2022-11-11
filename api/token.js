@@ -6,14 +6,17 @@ export const getToken = () => {
     return localStorage.getItem('token')
 }
 
+// Function that will be used to set the token
 export const setToken = (token) => {
     localStorage.setItem('token', token)
 }
 
+// Function that will be used to remove the token from the local storage
 export const removeToken = () => {
     localStorage.removeItem('token')
 }
 
+// Function that will be used to check if the token is expired
 export const isTokenExpired = (token) => {
     const decoded = jwtDecode(token)
     const expireDate = decoded.exp * process.env.EXPIRATION_TIME

@@ -1,5 +1,7 @@
 import jwtDecode from 'jwt-decode'
 // In this file, we are make all functions that we need to use in the app to get, remove, set the token and check if the token is expired
+
+// Function that will be used to get the token from the local storage
 export const getToken = () => {
     return localStorage.getItem('token')
 }

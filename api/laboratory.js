@@ -6,9 +6,12 @@ import {authFetch} from './user'
 
 axios.defaults.headers["Access-Control-Allow-Origin"] = "*"
 
+// Function that will be used to get Laboratory Services from the API
 export const getLaboratoryServicesApi = async (logout) => {
     try {
+        // Define the URL
         const url = `${BASE_PATH}/institution/laboratory`
+        // Make the petition GET to the API
         const result = await authFetch(url, { method: "GET" }, logout)
         return result ? result : null
     } catch (e) {

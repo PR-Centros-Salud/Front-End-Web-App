@@ -1,5 +1,6 @@
 import { RingLoader } from "react-spinners"
 
+// We are exporting the component that will be used to show the loading animation.
 const Loader = () => {
     return(
         <div className="loader">

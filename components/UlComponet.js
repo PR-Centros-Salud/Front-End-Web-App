@@ -1,5 +1,3 @@
-// TODO Cambiar esto wtff
-
 import Link from "next/link"
 
 const UlComponent = () => {

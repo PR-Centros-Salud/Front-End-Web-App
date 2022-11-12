@@ -13,9 +13,7 @@ import jwtDecode from 'jwt-decode'
 import AuthContext from '../context/AuthContext'
 import {useState } from 'react'
 
-
 function MyApp({ Component, pageProps }) {
-
   const [reloadUser, setreloadUser] = useState(false)
   const [auth, setAuth] = useState(undefined)
 

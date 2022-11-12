@@ -10,7 +10,6 @@ import Image from 'next/image'
 import AddDoctor from "../../components/doctors/addDoctor"
 
 export default function Doctors() {
-
   const {auth, logout} = useAuth()
   const router = useRouter()
   

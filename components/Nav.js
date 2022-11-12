@@ -8,7 +8,6 @@ import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 
 const Nav = () => {
-
     const router = useRouter()
     const { pathname } = router
     let [isAdmin, setIsAdmin] = useState(false)

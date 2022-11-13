@@ -80,6 +80,7 @@ export const authFetch = async (url, params, logout) => {
                 headers: {
                     ...params?.headers,
                     Authorization: `Bearer ${token}`, 
+                    "Access-Control-Allow-Origin" : "*"
                 },
                 method: params.method ? params.method : "GET",
             }

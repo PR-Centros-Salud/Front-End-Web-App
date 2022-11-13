@@ -29,7 +29,7 @@ export default function Doctors() {
             </ul>  
         </div>
       <div className="doctors-page">  
-      {tab === 1 ? <ShowDoctors logout={ logout } /> : <AddDoctor/>}
+        {tab === 1 ? <ShowDoctors logout={logout} /> : <AddDoctor setTab={setTab} />}
       </div>
     </>
   )

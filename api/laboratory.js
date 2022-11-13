@@ -38,12 +38,11 @@ export const createLaboratoryServiceApi = async (values, logout) => {
     try {
         // Define the URL
         const url = `${BASE_PATH}/institution/laboratory/create`
-        // Define the data to send
-        const formData = new FormData()
-        formData.append("laboratory_service_name", values.name.trim())
-        formData.append("medical_personal_id", values.medId)
+
+        values.laboratory_service_name = values.laboratory_service_name.trim()
+        
         // Make the petition POST to the API
-        const result = await authFetch(url, { method: "POST", body: formData, headers: { "Content-Type": "application/json" } }, logout)
+        const result = await authFetch(url, { method: "POST", body: values, headers: { "Content-Type": "application/json" } }, logout)
         console.log(result)
         return result ? result : null
     } catch (e) {

@@ -94,7 +94,7 @@ export const deleteDoctorApi = async (logout, id) => {
 export const getDoctorApi = async (logout, id) => { 
     try {
         const url = `${BASE_PATH}/medicalPersonal/get/${id}`
-        const result = await authFetch(url, { method: "GET" }, logout)
+        const result = await authFetch(url, { method: "GET"}, logout)
         return result
     } catch (e) {
         return e

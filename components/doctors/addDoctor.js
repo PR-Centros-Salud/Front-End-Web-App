@@ -10,7 +10,7 @@ import { createDoctorApi, addScheduleApi, deleteDoctorApi } from '../../api/doct
 import Loader from '../Loader'
 import Select from 'react-select'
 
-const AddDoctor = () => {
+const AddDoctor = ({ setTab }) => {
 
     const router = useRouter()
     let [loading, setLoading] = useState(false)
@@ -98,7 +98,7 @@ const AddDoctor = () => {
                                                         if (responseSchedule?.status) {
                                                             if (responseSchedule.status == 200) {
                                                                 toast.success('Horario creado con exito')
-                                                                router.reload('/admin/doctors')
+                                                                setTab(1)
                                                             }
                                                         } else {
                                                             if (responseSchedule.response?.data?.detail) {
@@ -116,13 +116,15 @@ const AddDoctor = () => {
                                             } else {
                                                 console.log(response.response)
                                                 if (response.response?.data?.detail) {
-                                                    if(response.response.data.detail == 'Email already exists'){
+                                                    if (response.response.data.detail == 'Email already exists') {
                                                         toast.error('El email ingresado ya existe')
-                                                    } else if (response.response.data.detail == 'Identity card already exists'){
+                                                    } else if (response.response.data.detail == 'Identity card already exists') {
                                                         toast.error('La cedula ingresada ya existe')
-                                                    } else if(response.response.data.detail == 'Phone already exists'){
+                                                    } else if (response.response.data.detail == 'Phone already exists') {
                                                         toast.error('El telefono ingresado ya existe')
-                                                    } else {
+                                                    } else if (response.response.data.detail == 'Phone number is not valid.') {
+                                                        toast.error('El telefono ingresado no es valido')
+                                                    }else {
                                                         toast.error('Error al crear el doctor')
                                                     }
                                                 }
@@ -312,9 +314,9 @@ const AddDoctor = () => {
                         value={formik.values.endTime}
                         onChange={formik.handleChange('end_time')}
                     />
-                    </div>
-                <button type="submit">{loading ? 'Creando Doctor...' : 'Agregar Doctor'}</button>
                 </div>
+                <button className='button-add' type="submit">{loading ? 'Creando Doctor...' : 'Agregar Doctor'}</button>
+            </div>
         </form>      
         )}
     </div>

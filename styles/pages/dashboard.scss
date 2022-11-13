@@ -262,16 +262,59 @@
     }
 
     &-section-2-admin{
+        @include flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
         > div {
-            background-color: pink;
-            > div {
-                background-color: blue;
-                img{
+            @include flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            margin-top: 5rem;
 
+            > div {
+                @include flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img{
+                    @include flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
                 }
 
                 > div{
-                    background-color: green;
+                    @include flex;
+                    flex-direction: column; 
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+
+                    h6 {
+                        margin: 0;
+                        margin-top: 1.5rem;
+                        font-size: 3rem;
+                        font-weight: 300;
+                        color: $main-font-color;
+                    }
+
+                    h3 {
+                        margin: 0;
+                        margin-top: 1.5rem;
+                        font-size: 1.5rem;
+                        font-weight: 300;
+                        color: gray;
+                    }
                 }
             }
         }

@@ -16,3 +16,14 @@ export const getRoomsApi = async (logout, type) => {
         return null
     }
 }
+
+export const addRoomApi = async(logout, values) => {
+    try {
+        const url = `${BASE_PATH}/institution/rooms/create`
+        const result = await authFetch(url, { method: "POST", body: values }, logout)
+        return result ? result : null
+    } catch (e) {
+        console.log(e)
+        return null
+    }
+}

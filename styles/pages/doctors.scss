@@ -46,10 +46,11 @@
                 background-color: #1B1F24;
                 border-radius: 10px;
                 font-size: 1.5rem;
-                font-weight: 600;
+                font-weight: 300;
                 padding: auto;
                 border: none;
                 margin-right: auto;
+                color: white;
             }
             &-column-1{
                 width: 33%;
@@ -69,7 +70,6 @@
                     font-size: 1.5rem;
                     font-weight: 600;
                     color: white;
-
                 }
  
             }
@@ -109,7 +109,16 @@
                 }
             }
         }
-
     }
 
+    .button-add {
+        margin-top: 1.5rem;
+        width: 100%;
+        height: 5vh;
+        background-color: #E84949;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+    }
 }

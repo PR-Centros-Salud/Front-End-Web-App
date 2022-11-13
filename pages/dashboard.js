@@ -50,15 +50,16 @@ const AdminDashboard = ({user}) => {
                 <div>
                     <Image
                         priority
-                        src="/images/image 2.svg"
-                        height={70}
-                        width={70}
-                        alt="doctor"
+                        src="/images/logo.svg"
+                        height={200}
+                        width={200}
+                        alt="logo"
                     />
                     <div>
-                        <h3>Dr. Juan Perez</h3>
-                        <h4>Cardiologo</h4>
-                        <h6>32 Años, Universidad de Brigham</h6>
+                        <h6>Bienvenido al Programa de Administración</h6>
+                    </div>
+                    <div>
+                        <h3>Admin: {`${user.first_name} ${user.last_name} ${user.second_last_name ? user.second_last_name : ''}`}</h3>
                     </div>
                 </div>
             </div>

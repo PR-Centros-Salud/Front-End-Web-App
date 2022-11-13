@@ -89,3 +89,20 @@ body {
       border-radius: 0;
     }
   }
+
+  select {
+    height: 5vh;
+    width: 85%;
+    background-color: $secondary-bg-color;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: auto;
+    border: none;
+    margin-right: auto;
+  }
+
+  input {
+    color: white;
+  }

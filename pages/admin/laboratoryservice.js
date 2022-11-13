@@ -2,7 +2,8 @@ import Loader from '../../components/Loader'
 import useAuth from '../../hooks/useAuth'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import { getLaboratoryServicesApi, getLaboratorySpecialistsApi, createLaboratoryServiceApi } from '../../api/laboratory'
+import { getLaboratoryServicesApi, getLaboratorySpecialistsApi, deleteLaboratoryServiceApi } from '../../api/laboratory'
+import { getRoomsApi } from '../../api/institution'
 import { toast } from 'react-toastify';
 import { useFormik } from 'formik';
 export default function LaboratoryService() {
@@ -10,21 +11,23 @@ export default function LaboratoryService() {
     const router = useRouter()
     const { auth, login, logout } = useAuth()
     const [labServices, setLabServices] = useState(null)
+    const [rooms, setRooms] = useState(null)
     const [labSpecialists, setLabSpecialists] = useState(null)
     const [loading, setLoading] = useState(false)
 
     const formik = useFormik({
         initialValues: {
-            name: '',
-            medId: '0',
+            laboratory_service_name: '',
+            medical_personal_id: '0',
+            room_id: '0',
         },
         onSubmit: async (values) => { 
             console.log(values)
             setLoading(true)
-            if (values.name === '' || values.medId === '0') {
+            if (values.laboratory_service_name === '' || values.medId === '0' || values.roomId === '0') {
                 toast.error('Todos los campos son obligatorios')
             } else {
-                if (labServices.find(service => service.name === values.name)) {
+                if (labServices.find(service => service.laboratory_service_name.toLowerCase() === values.laboratory_service_name.toLowerCase())) {
                     toast.error('Ya existe un servicio con ese nombre')
                 } else {
                     const response = await createLaboratoryServiceApi(values)
@@ -49,20 +52,25 @@ export default function LaboratoryService() {
             } else {
                 const labServices = await getLaboratoryServicesApi(logout)
                 const labSpecialists = await getLaboratorySpecialistsApi(logout)
-                if (labServices && labSpecialists) { 
+                const rooms = await getRoomsApi(logout, 2)
+                if (labServices && labSpecialists && rooms) { 
                     setLabServices(labServices.data)
                     setLabSpecialists(labSpecialists.data)
+                    setRooms(rooms.data)
                     console.log(labServices)
                     console.log(labSpecialists)
                     if (labSpecialists.data.length == 0) {
                         toast.error('No hay especialistas disponibles, por favor registre uno antes de agregar un servicio')
                         router.push('/admin/doctors')
+                    } else if (rooms.data.length == 0) {
+                        toast.error('No hay salas disponibles, por favor registre una antes de agregar un servicio')
+                        router.push('/admin/rooms')
                     }
                     setLoading(false)
                 }
             }
         })()
-    },[])
+    }, [])
 
 
     
@@ -72,7 +80,7 @@ export default function LaboratoryService() {
                 {loading && <Loader />}
                 {!loading && (labServices != null) && labSpecialists && (<>
                     <div className="laboratoryservice-page-container-title">
-                        <h3><u>Servicios de Laboratorio</u></h3>
+                        <h3>Servicios de Laboratorio</h3>
                         <p>Añadir Servicio de Laboratorio</p>
                     </div>
                     <div className="laboratoryservice-page-container-inputs">
@@ -81,16 +89,26 @@ export default function LaboratoryService() {
                             <h4>Nombre de Servicio de laboratorio</h4>
                             <input
                                 type="text"
-                                value={formik.values.name}
-                                onChange={formik.handleChange("name")}
+                                value={formik.values.laboratory_service_name}
+                                onChange={formik.handleChange("laboratory_service_name")}
                             />
                             <h4>Encargado de Servicio</h4>
-                            <select value={formik.values.medId} onChange={formik.handleChange("medId")}>
+                            <select value={formik.values.medical_personal_id} onChange={formik.handleChange("medical_personal_id")}>
                                 {labSpecialists.map((specialist) => (
                                     <option value={specialist.id} key={specialist.id}>{`${specialist.first_name} ${specialist.last_name}`}</option>
                                 ))}
                                 <option value="0">Seleccione un especialista</option>
                             </select>
+                            <h4>Sala de Servicio</h4>
+                            <select
+                            value={formik.values.room_id}
+                            onChange={formik.handleChange('room_id')}
+                            >
+                            <option value='0'>Selecciona un consultorio</option>
+                            {rooms?.map(room => (
+                                <option key={room.id} value={room.id}>{room.room_block ? `Bloque ${room.room_block} ` : ''}{room.room_floor ? `Piso ${room.room_floor} ` : ''}{`#${room.room_number}`}</option>
+                            ))}
+                        </select>
                         </div>
                     
     
@@ -113,6 +131,7 @@ export default function LaboratoryService() {
                                     <tr>
                                         <td>Nombre de Servicio</td>
                                         <td>Encargado de Servicio</td>
+                                        <td>Sala de Servicio</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -120,6 +139,7 @@ export default function LaboratoryService() {
                                         <tr key={service.id}>
                                             <td>{service.laboratory_service_name}</td>
                                             <td>{`${service.medical_personal.first_name} ${service.medical_personal.last_name}`}</td>
+                                            <td>{service.room.room_block ? `Bloque ${service.room.room_block} ` : ''}{service.room.room_floor ? `Piso ${service.room.room_floor} ` : ''}{`#${service.room.room_number}`}</td>
                                         </tr>
                                     ))}
                                 </tbody>

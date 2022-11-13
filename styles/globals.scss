@@ -12,6 +12,7 @@
 @import './pages/addrooms.scss';
 @import './pages/showrooms.scss';
 @import './pages/laboratoryservice.scss';
+@import './pages/doctor.scss';
 
 
 // Variables
@@ -77,4 +78,14 @@ body {
 
   main{
     background-color: $main-bg-color;
+  }
+
+  .input-schedule-1{
+    div{
+      background-color: $secondary-bg-color;
+    }
+    > div > div > div > div > div{
+      background-color: $extra-color;
+      border-radius: 0;
+    }
   }

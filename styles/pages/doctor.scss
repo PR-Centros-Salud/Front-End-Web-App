@@ -1,0 +1,91 @@
+@import './../mixins.scss';
+@import './../variables.scss';
+
+.doctor-page{
+    @include flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: $main-bg-color;
+    .doctor-page-section-1{
+        @include flex;
+        width: 95%;
+        height: 100%;
+        &-form{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+            color: white;
+            input{
+                height: 5vh;
+                background-color: #1B1F24;
+                border-radius: 10px;
+                font-size: 1.5rem;
+                font-weight: 600;
+                padding: auto;
+                border: none;
+                margin-right: auto;
+            }
+            &-column-1{
+                width: 33%;
+                height: 100%;
+
+                
+            }
+            &-column-2{
+                width: 33%;
+                height: 100%;
+                .button-add-doctor{
+                    width: 70%;
+                    height: 5vh;
+                    margin-top: 5%;
+                    background-color: #E84949;
+                    border-radius: 10px;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: white;
+
+                }
+ 
+            }
+            &-column-3{
+                width: 33%;
+                height: 100%;
+                color: white;
+                textarea{
+                    height: 18vh;
+                    background-color: #1B1F24;
+                    border-radius: 10px;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    padding: auto;
+                    border: none;
+                    resize:none;
+                }
+                &-image{
+                    display: flex;
+                    flex-direction: column;
+                    &-input{
+                        display: flex;
+                        flex-direction: row;
+                        .input-image-buttons-options{
+                            @include flex;
+                            flex-direction: column;
+                            margin-left: 2vh;
+                            margin-bottom: 8vh;
+                            .option-add{
+                                margin-bottom: 2vh;
+                            }
+                        }
+                    }
+                }
+                .input-description{
+                    margin-top: 2.5vh;
+                }
+            }
+        }
+
+    }
+}

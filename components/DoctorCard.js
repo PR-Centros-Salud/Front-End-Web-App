@@ -10,7 +10,7 @@ const DoctorCard = ({doctor}) => {
         <div className='doctor-card' >
             <Image
                 priority
-                src="/images/doctor-image.png"
+                src="/images/doctor-icon.svg"
                 height={150}
                 width={150}
                 alt="doctor"
@@ -18,7 +18,7 @@ const DoctorCard = ({doctor}) => {
             <div className='information'>
                 <h2 className='full-name'>{fullName}</h2>
                 <h6 className='specialty'>{doctor.contract.role}</h6>
-                <Link href={"#"}>
+                <Link href={`/admin/doctor/${doctor.id}`}>
                     <button className='button-1'>Ver Perfil</button>
                 </Link>
             </div>

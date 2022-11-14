@@ -22,3 +22,18 @@ export const getAdminByIdApi = async (id, logout) => {
     }
 }
 
+const updateInstitutionApi = async (id, logout, values) => {
+    try {
+        // Define the URL
+        const url = `${BASE_PATH}/institution/update/${id}`
+
+        // Make the petition to the API
+        const result = await authFetch(url, { method: "PATCH", body: values }, logout)
+        // Return the result of the petition
+        return result ? result : null
+    } catch (e) {
+        // Return null if there is an error
+        console.log(e)
+        return null
+    }
+}

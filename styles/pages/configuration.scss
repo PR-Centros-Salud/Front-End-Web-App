@@ -6,7 +6,7 @@
     width: 100%;
     flex-direction: column;
     background-color: #121418;
-    align-items: flex-start;   
+    align-items: flex-start;  
 
     .top-part-ul {
         @include flex;
@@ -169,11 +169,6 @@
                     flex-direction: column;
                     margin-left: 5%;
                 }
-                .inputs-column-3{
-                    display: flex;
-                    flex-direction: column;
-                    margin-left: 5%;
-                }
             }
 
         }
@@ -211,4 +206,79 @@
             }
         }
     }   
+
+    .password-change-section
+    {
+        @include flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        background-color: #121418;
+        margin-left: 5%;
+
+        h4{
+            margin: 0;
+            margin-top: 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        &-inputs{
+            @include flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            background-color: #121418;
+            z-index: 2;
+
+            input {
+                height: 45%;
+                background-color: #1B1F24;
+                border-radius: 10px;
+                font-size: 1.5rem;
+                font-weight: 600;
+                padding: auto;
+                border: none;
+                color: white;
+            }
+        }
+
+        &-buttons{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 2%;
+            z-index: 20;
+            .button-1{
+                background-color: #E84949;
+                color: $main-font-color;
+                border-color: #E84949;
+                border: 2%;
+                border-radius: 8px;
+                padding: 0.5rem;
+                margin: 0.5rem;
+                font-size: 1.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                width: 20vh;
+            }
+            // .button-2{
+            //     background-color: #1B1F24;
+            //     color: $main-font-color;
+            //     border: 2%;
+            //     border-color: white;
+            //     border-radius: 8px;
+            //     padding: 0.5rem;
+            //     margin: 0.5rem;
+            //     font-size: 1.5rem;
+            //     font-weight: 600;
+            //     cursor: pointer;
+            //     width: 20vh;
+            // }
+        }
+    }
 }

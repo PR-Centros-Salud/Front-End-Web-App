@@ -100,3 +100,47 @@ export const getDoctorApi = async (logout, id) => {
         return e
     }
 }
+
+export const getDoctorByIdApi = async (id, logout) => {
+    try {
+        // Define the URL
+        const url = `${BASE_PATH}/medicalPersonal/get/${id}`
+        // Make the petition GET to the API
+        const result = await authFetch(url, { method: "GET"}, logout)
+        // Return the result of the petition
+        return result ? result : null
+    } catch (e) {
+        // Return null if there is an error 
+        console.log(e)
+        return e
+    }
+}
+
+export const updateDoctorApi = async (data, logout) => {
+    try {
+        const url = `${BASE_PATH}/medicalPersonal/update`
+        data.first_name = data.first_name.trim()
+        data.last_name = data.last_name.trim()
+        if (data.second_last_name != null) {
+            if (data.second_last_name.length > 4) {
+                data.second_last_name = data.second_last_name.trim()
+            } else {
+                data.second_last_name = null
+            }
+        }
+        data.email = data.email.trim()
+        data.phone = data.phone.trim()
+
+        const params = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: data,
+        }
+        const result = await authFetch(url, params, logout)
+        return result
+    } catch (e) {
+        return e
+    }
+}

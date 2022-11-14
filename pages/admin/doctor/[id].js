@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 import Select from 'react-select'
 import { toast } from 'react-toastify';
 
-const ViewDoctor = (props) => {
+const ViewDoctor = () => {
     const router = useRouter();
     const { id } = router.query;
     const { auth, logout } = useAuth();

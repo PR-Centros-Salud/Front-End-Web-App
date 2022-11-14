@@ -24,3 +24,15 @@ export const isTokenExpired = (token) => {
     return currentDate > expireDate
 }
 
+export const setMedType = (type) => {
+    localStorage.setItem('medType', type)
+}
+
+export const getMedType = () => {
+    return localStorage.getItem('medType')
+}
+
+export const removeMedType = () => {
+    localStorage.removeItem('medType')
+}
+

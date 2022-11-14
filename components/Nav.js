@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
+import { removeMedType } from "../api/token";
 
 const Nav = () => {
     const router = useRouter()
@@ -21,9 +22,13 @@ const Nav = () => {
         }
     }, [])
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         logout()
+        if (!isAdmin) {
+            await removeMedType()
+        }
         router.push('/login')
+
     }
 
 
